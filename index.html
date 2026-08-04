@@ -18,8 +18,8 @@
 <meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
 <meta property="og:title" content="石門國小校網遷移操作台">
 <meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.04-3">
-<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.04-3">
+<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.05-1">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.05-1">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -29,86 +29,147 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="石門國小校網遷移操作台">
 <meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.04-3">
+<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.05-1">
 
 <style>
 :root {
-  --bg:#f6f7f4; --fg:#1f2933; --card:#fff; --line:#dfe3da;
-  --accent:#5d6b47; --muted:#495057; --code:#f0f2ec;
+  --bg:#f4f6f1; --fg:#161c14; --card:#fff; --line:#dde2d6;
+  --accent:#4c5a38; --muted:#414b3a; --code:#eef1e9;
+  /* 桌機把寬度用好：不要一條窄欄置中，兩側 gutter 控制在 ~3vw */
+  --maxw: min(1320px, 94vw);
+  --pad: clamp(1rem, 3vw, 2rem);
+  --sc: var(--accent);
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg:#161a14; --fg:#e8eae4; --card:#1e231c; --line:#333a2f;
-           --accent:#9db47c; --muted:#b8bfae; --code:#252b22; }
+  :root { --bg:#13170f; --fg:#eef0e8; --card:#1c211a; --line:#333b2c;
+           --accent:#a8c183; --muted:#c2cab4; --code:#242a20; }
 }
 * { box-sizing:border-box; }
-body { margin:0; padding:0 1rem 4rem; background:var(--bg); color:var(--fg);
-  font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height:1.75; }
-.wrap { max-width:900px; margin:0 auto; }
-header.top { padding:2rem 0 1rem; border-bottom:3px solid var(--accent); margin-bottom:1.5rem; }
-h1 { font-size:1.6rem; margin:0 0 .4rem; }
-.sub { color:var(--muted); font-size:.95rem; margin:0; }
-.dl { display:inline-block; margin-top:.8rem; padding:.45rem .9rem; border-radius:.5rem;
-  background:var(--accent); color:#fff; font-weight:700; }
-.bar { margin-top:1rem; background:var(--code); border-radius:.5rem; height:1.5rem;
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; padding:0 var(--pad) 5rem; background:var(--bg); color:var(--fg);
+  font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  /* 內文字級隨視窗放大：手機 16.5px → 桌機 18.5px */
+  font-size:clamp(16.5px, 15.2px + 0.35vw, 18.5px); line-height:1.8;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:var(--maxw); margin:0 auto; }
+
+header.top { padding:clamp(1.5rem,4vw,2.75rem) 0 1.25rem;
+  border-bottom:4px solid var(--accent); margin-bottom:1.75rem; }
+h1 { font-size:clamp(1.65rem, 1rem + 2.6vw, 3rem); margin:0 0 .5rem;
+  letter-spacing:-.02em; line-height:1.25;
+  background:linear-gradient(100deg, var(--accent), #6f8a4a 55%, #b08d3f);
+  -webkit-background-clip:text; background-clip:text; color:transparent; }
+.sub { color:var(--muted); font-size:clamp(.95rem,.9rem + .2vw,1.08rem); margin:.15rem 0; }
+.dl { display:inline-flex; align-items:center; gap:.5rem; margin-top:1rem;
+  padding:.65rem 1.2rem; border-radius:99px; font-size:clamp(1rem,.95rem + .25vw,1.2rem);
+  background:linear-gradient(135deg,#4c5a38,#7a8f52); color:#fff; font-weight:700;
+  box-shadow:0 6px 18px -8px rgba(60,80,30,.7); }
+.bar { margin-top:1.25rem; background:var(--code); border-radius:99px; height:1.9rem;
   overflow:hidden; border:1px solid var(--line); }
-.bar > i { display:block; height:100%; background:var(--accent); width:0; transition:width .3s; }
-.barlab { font-size:.9rem; color:var(--muted); margin-top:.3rem; }
-h2.phase { font-size:1.15rem; margin:2.2rem 0 .8rem; padding:.4rem .8rem;
-  border-radius:.4rem; background:var(--c); color:#fff; display:flex;
-  justify-content:space-between; align-items:center; }
-.cnt { font-size:.85rem; font-weight:400; opacity:.9; }
-.card { background:var(--card); border:1px solid var(--line); border-radius:.6rem;
-  padding:1.1rem 1.3rem; margin-bottom:1rem; }
-.card h3 { font-size:1.05rem; margin:0 0 .5rem; display:flex; gap:.5rem;
-  align-items:flex-start; justify-content:space-between; }
-.chk { display:flex; gap:.55rem; align-items:flex-start; cursor:pointer; flex:1; }
-/* 勾選框一律 24x24（WCAG 2.5.5 觸控目標最小尺寸）。
-   不分裝置統一設定——平板寬度會落在手機斷點外，
-   而 @media (pointer: coarse) 在桌機模擬時又不生效，疊斷點很容易漏掉。 */
-.chk input { width:1.5rem; height:1.5rem; margin-top:.28rem; flex:none; accent-color:var(--accent); }
-.num { background:var(--accent); color:#fff; border-radius:50%; width:1.5rem; height:1.5rem;
-  display:inline-flex; align-items:center; justify-content:center; font-size:.85rem;
-  flex:none; margin-top:.15rem; }
-.mins { font-size:.8rem; color:var(--muted); white-space:nowrap; }
-.why { color:var(--muted); font-size:.93rem; margin:.2rem 0 .7rem;
-  padding-left:.7rem; border-left:3px solid var(--line); }
-ol.steps { margin:.5rem 0; padding-left:1.4rem; }
-ol.steps li { margin:.35rem 0; }
-code { background:var(--code); padding:.1rem .35rem; border-radius:.25rem;
-  font-family:ui-monospace,Consolas,monospace; font-size:.9em; word-break:break-all; }
-.copyrow { display:flex; gap:.6rem; align-items:center; justify-content:space-between;
-  background:var(--code); padding:.5rem .75rem; border-radius:.4rem; margin:.4rem 0; }
-.copyrow span { font-size:.92rem; }
-.btn { background:var(--accent); color:#fff; border:0; border-radius:.35rem;
-  padding:.4rem .9rem; min-height:2.25rem; cursor:pointer; font-size:.9rem;
-  font-family:inherit; flex:none; }
-.btn:hover { filter:brightness(1.1); }
+.bar > i { display:block; height:100%; width:0; transition:width .45s cubic-bezier(.3,1.2,.4,1);
+  background:linear-gradient(90deg,#3f8f4a,#0e8f86 35%,#2f6fd0 62%,#8a4fd0 82%,#c07a1e); }
+.barlab { font-size:1rem; color:var(--muted); margin-top:.45rem; font-weight:600; }
+
+h2.phase { font-size:clamp(1.2rem,1rem + .9vw,1.75rem); margin:2.75rem 0 1.1rem;
+  padding:.7rem 1.15rem; border-radius:.85rem; background:var(--c); color:#fff;
+  display:flex; justify-content:space-between; align-items:center; gap:.6rem;
+  box-shadow:0 8px 22px -14px var(--c); }
+.pn { font-weight:800; letter-spacing:.02em; }
+.cnt { font-size:.9rem; font-weight:500; opacity:.92;
+  background:rgba(255,255,255,.18); padding:.25rem .7rem; border-radius:99px; }
+
+/* 卡片網格：螢幕越寬欄數越多，把桌機寬度用滿 */
+.grid { display:grid; gap:1.15rem; grid-template-columns:1fr; }
+@media (min-width:1080px) { .grid { grid-template-columns:repeat(auto-fill,minmax(465px,1fr)); } }
+
+.card { background:var(--card); border:1px solid var(--line);
+  border-left:6px solid var(--sc); border-radius:.9rem;
+  padding:clamp(1rem,2vw,1.5rem); position:relative; overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+  box-shadow:0 2px 10px -6px rgba(20,30,10,.22); }
+.card::after { content:""; position:absolute; inset:0 0 auto auto; width:150px; height:150px;
+  background:radial-gradient(circle at 100% 0, var(--sc), transparent 70%);
+  opacity:.11; pointer-events:none; }
+.card:hover { transform:translateY(-3px); box-shadow:0 14px 30px -18px var(--sc); }
+.card h3 { font-size:clamp(1.1rem,1rem + .55vw,1.35rem); margin:0 0 .6rem;
+  display:flex; gap:.6rem; align-items:flex-start; justify-content:space-between;
+  line-height:1.45; }
+.card h3 .t { font-weight:800; }
+.chk { display:flex; gap:.65rem; align-items:flex-start; cursor:pointer; flex:1; }
+/* 勾選框一律 26x26（WCAG 2.5.5 觸控目標）。不分裝置統一設定——
+   平板寬度會落在手機斷點外，而 @media (pointer: coarse) 在桌機模擬又不生效。 */
+.chk input { width:1.6rem; height:1.6rem; margin-top:.3rem; flex:none; accent-color:var(--sc); }
+.num { background:var(--sc); color:#fff; border-radius:.6rem; min-width:2.1rem; height:2.1rem;
+  padding:0 .4rem; display:inline-flex; align-items:center; justify-content:center;
+  font-size:1.05rem; font-weight:800; flex:none; margin-top:.05rem;
+  box-shadow:0 4px 10px -5px var(--sc); }
+.mins { font-size:.88rem; color:#fff; background:var(--sc); opacity:.9;
+  white-space:nowrap; padding:.2rem .65rem; border-radius:99px; font-weight:600; }
+.why { color:var(--muted); font-size:1rem; margin:.3rem 0 .9rem;
+  padding:.55rem .85rem; border-left:4px solid var(--sc);
+  background:color-mix(in srgb, var(--sc) 7%, transparent); border-radius:0 .5rem .5rem 0; }
+ol.steps { margin:.6rem 0; padding-left:1.6rem; }
+ol.steps li { margin:.5rem 0; }
+ol.steps li::marker { color:var(--sc); font-weight:800; }
+code { background:var(--code); padding:.15rem .4rem; border-radius:.3rem;
+  font-family:ui-monospace,Consolas,monospace; font-size:.92em; word-break:break-all; }
+.copyrow { display:flex; gap:.7rem; align-items:center; justify-content:space-between;
+  background:color-mix(in srgb, var(--sc) 9%, var(--card));
+  border:1px solid color-mix(in srgb, var(--sc) 22%, transparent);
+  padding:.65rem .9rem; border-radius:.6rem; margin:.5rem 0; }
+.copyrow span { font-size:1rem; }
+.btn { background:var(--sc); color:#fff; border:0; border-radius:.6rem;
+  padding:.6rem 1.25rem; min-height:2.9rem; cursor:pointer;
+  font-size:1.02rem; font-weight:700; font-family:inherit; flex:none;
+  box-shadow:0 5px 14px -7px var(--sc); transition:transform .12s, filter .12s; }
+.btn:hover { filter:brightness(1.12); transform:translateY(-1px); }
+.btn:active { transform:translateY(1px); }
 .btn.ok { background:#15803d; }
-.note { background:var(--code); border-radius:.4rem; padding:.6rem .8rem;
-  font-size:.9rem; color:var(--muted); margin:.7rem 0 0; }
-.note.priv { border-left:4px solid #b45309; }
-.checks ul { list-style:none; padding-left:0; }
-.checks li { margin:.3rem 0; }
-.checks label { display:flex; gap:.5rem; align-items:flex-start; cursor:pointer; }
-.checks input { width:1.5rem; height:1.5rem; margin-top:.28rem;
-  accent-color:var(--accent); flex:none; }
-.tbl { overflow-x:auto; }
-table { border-collapse:collapse; width:100%; font-size:.88rem; margin:.5rem 0; }
-th,td { border:1px solid var(--line); padding:.45rem .6rem; text-align:left; vertical-align:top; }
-th { background:var(--code); }
+.fmt { font-size:1rem; }
+.note { background:color-mix(in srgb, var(--sc) 8%, var(--code));
+  border-radius:.55rem; padding:.75rem 1rem; font-size:.98rem;
+  color:var(--muted); margin:.85rem 0 0; }
+.note.priv { border-left:5px solid #b45309;
+  background:color-mix(in srgb, #b45309 9%, var(--code)); }
+.checks { background:color-mix(in srgb, var(--sc) 7%, transparent);
+  border-radius:.6rem; padding:.85rem 1rem; margin-top:.8rem; }
+.checks ul { list-style:none; padding-left:0; margin:.5rem 0 0; }
+.checks li { margin:.45rem 0; }
+.checks label { display:flex; gap:.6rem; align-items:flex-start; cursor:pointer; }
+.checks input { width:1.6rem; height:1.6rem; margin-top:.3rem;
+  accent-color:var(--sc); flex:none; }
+.tbl { overflow-x:auto; margin:.6rem 0; border-radius:.5rem; }
+table { border-collapse:collapse; width:100%; font-size:.95rem; }
+th,td { border:1px solid var(--line); padding:.6rem .75rem; text-align:left; vertical-align:top; }
+th { background:color-mix(in srgb, var(--sc) 14%, var(--card)); font-weight:700; }
 ul.files { list-style:none; padding-left:0; }
-ul.files li { padding:.3rem 0; }
-.sz { color:var(--muted); font-size:.85rem; }
-.tool { background:var(--card); border:1px solid var(--line); border-radius:.6rem;
-  padding:1.1rem 1.3rem; margin:2rem 0; }
-.tool label { display:inline-block; margin-right:1rem; }
-.tool input[type=color] { vertical-align:middle; width:3rem; height:2rem; }
-#ratio { font-size:1.5rem; font-weight:700; }
-.pass { color:#15803d; } .fail { color:#b91c1c; }
+ul.files li { padding:.45rem .7rem; margin:.3rem 0; border-radius:.45rem;
+  background:color-mix(in srgb, var(--sc) 7%, transparent); }
+.sz { color:var(--muted); font-size:.9rem; }
+.tool { background:var(--card); border:1px solid var(--line);
+  border-top:6px solid #7a5cd0; border-radius:.9rem;
+  padding:clamp(1rem,2vw,1.6rem); margin:2.5rem 0 1rem;
+  box-shadow:0 2px 10px -6px rgba(20,30,10,.22); }
+.tool h3 { font-size:clamp(1.1rem,1rem + .5vw,1.35rem); margin:0 0 .3rem; }
+.toolrow { display:flex; gap:1.5rem; flex-wrap:wrap; align-items:center; margin-top:.6rem; }
+.tool label { display:inline-flex; align-items:center; gap:.6rem; font-weight:600; }
+.tool input[type=color] { width:4rem; height:2.8rem; border:1px solid var(--line);
+  border-radius:.5rem; cursor:pointer; padding:2px; background:var(--card); }
+#ratio { font-size:clamp(1.8rem,1.4rem + 1vw,2.4rem); font-weight:800; }
+.pass { color:#15803d; font-weight:700; }
+.fail { color:#b91c1c; font-weight:700; }
+@media (prefers-color-scheme: dark) {
+  .pass { color:#5fd68a; } .fail { color:#ff8b8b; }
+}
 footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   color:var(--muted); font-size:.88rem; text-align:center; }
-footer a { color:var(--accent); }
-.done h3 { opacity:.5; text-decoration:line-through; }
+footer a { color:var(--accent); font-weight:700; }
+/* 完成的卡片：淡出但仍看得清楚，序號換成打勾
+   （狀態不只靠顏色傳達——這站本身在講無障礙，要以身作則） */
+.done { opacity:.62; }
+.done h3 .t { text-decoration:line-through; }
+.done .num { font-size:0; }
+.done .num::after { content:"✓"; font-size:1.3rem; }
 
 /* Service Worker 更新通知列 */
 #sw-update-bar { position:fixed; left:50%; bottom:max(16px, env(safe-area-inset-bottom));
@@ -124,35 +185,37 @@ footer a { color:var(--accent); }
 
 /* ── 手機／平板 ───────────────────────────────── */
 @media (max-width: 720px) {
-  body { padding:0 .75rem 3rem; }
-  header.top { padding:1.25rem 0 .8rem; }
-  h1 { font-size:1.3rem; }
-  .sub { font-size:.88rem; }
-  .dl { font-size:.92rem; padding:.4rem .75rem; }
-  h2.phase { font-size:1.02rem; flex-wrap:wrap; gap:.3rem; padding:.45rem .7rem; }
-  .card { padding:.9rem .85rem; border-radius:.5rem; }
-  .card h3 { font-size:.99rem; flex-wrap:wrap; gap:.35rem; }
-  .mins { padding-left:2rem; }
-  .why { font-size:.89rem; }
-  ol.steps { padding-left:1.15rem; }
-  ol.steps li { margin:.45rem 0; }
+  header.top { padding:1.25rem 0 .9rem; }
+  h2.phase { flex-wrap:wrap; gap:.4rem; }
+  .card h3 { flex-wrap:wrap; gap:.4rem; }
+  .mins { margin-left:2.75rem; }
+  ol.steps { padding-left:1.3rem; }
   /* 手機上文字與按鈕分兩行，按鈕不會把文字擠成一條線 */
   .copyrow { flex-wrap:wrap; align-items:stretch; }
   .copyrow span { flex:1 1 100%; }
-  .copyrow .btn { width:100%; padding:.55rem; }
-  table { font-size:.82rem; }
-  th, td { padding:.4rem .45rem; }
-  .tool label { display:flex; align-items:center; gap:.5rem;
-    margin:0 0 .6rem; justify-content:space-between; }
-  #ratio { font-size:1.3rem; }
+  .copyrow .btn { width:100%; }
+  table { font-size:.9rem; }
+  th, td { padding:.5rem .55rem; }
+  .toolrow { flex-direction:column; align-items:stretch; gap:.75rem; }
+  .tool label { justify-content:space-between; }
   #sw-update-bar { left:12px; right:12px; transform:none; max-width:none; }
 }
 
 /* 很窄的手機（iPhone SE 等） */
 @media (max-width: 380px) {
-  h1 { font-size:1.18rem; }
-  .card { padding:.8rem .7rem; }
-  code { font-size:.82em; }
+  code { font-size:.86em; }
+  .num { min-width:1.9rem; height:1.9rem; font-size:.98rem; }
+}
+
+/* 超寬螢幕：再多開一欄，別讓卡片拉太長 */
+@media (min-width:1700px) {
+  :root { --maxw: min(1560px, 95vw); }
+  .grid { grid-template-columns:repeat(auto-fill,minmax(480px,1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation:none !important; transition:none !important; }
+  .card:hover { transform:none; }
 }
 
 /* 觸控裝置（含大螢幕觸控筆電）：可點擊目標再放大一點 */
@@ -174,7 +237,7 @@ footer a { color:var(--accent); }
   <h1>石門國小校網遷移操作台</h1>
   <p class="sub">桃園市龍潭區石門國民小學 · 舊站搬到共構新站 · 取得無障礙 AA 標章</p>
   <p class="sub">舊站 www.smes.tyc.edu.tw ＿ 新站 schoolweb2.tyc.edu.tw/~smes_www/</p>
-  <div class="dl">距離 115/12/18 取得標章死線：136 天</div>
+  <div class="dl">距離 115/12/18 取得標章死線：135 天</div>
   <div class="bar"><i id="prog"></i></div>
   <p class="barlab" id="proglab">進度 0 / 12</p>
 </header>
@@ -185,8 +248,8 @@ footer a { color:var(--accent); }
   <b>送審前只需要做完第一區塊</b>——研習與中心都強調「做越多越容易被挑毛病，趁資料不多時送審」。
 </div>
 
-<h2 class="phase" style="--c:#0f766e">送審前<span class="cnt">8 個步驟</span></h2><section class="card" id="color">
-<h3><label class="chk"><input type="checkbox" data-id="color"> <span class="num">1</span> 改處室顏色（1 分鐘，一次修好 27 處）</label><span class="mins">約 1 分</span></h3>
+<h2 class="phase" style="--c:#0f766e"><span class="pn">送審前</span><span class="cnt">8 個步驟</span></h2><div class="grid"><section class="card" id="color" style="--sc:#228155">
+<h3><label class="chk"><input type="checkbox" data-id="color"> <span class="num">1</span> <span class="t">改處室顏色（1 分鐘，一次修好 27 處）</span></label><span class="mins">約 1 分</span></h3>
 <p class="why">所有處室的職稱標籤都是白字配 #7e8f62 綠底，對比只有 3.50，低於規範要求的 4.5。這是目前最嚴重、也最好修的一項。</p>
 <ol class='steps'>
 <li>後台左側點「<b>行政處室</b>」→ 點任一個處室（例如教務處）</li>
@@ -199,8 +262,8 @@ footer a { color:var(--accent); }
 </ol>
 <div class="copyrow"><span>選單底色色碼：<code>#5d6b47</code></span><button class="btn" data-val="#5d6b47">複製</button></div>
 <p class="note">💡 講義 2-2-1 寫「顏色用途不多、只影響行政處室區塊」，實測已經過時——業務職掌頁的職稱標籤也吃這組顏色。</p>
-</section><section class="card" id="upload">
-<h3><label class="chk"><input type="checkbox" data-id="upload"> <span class="num">2</span> 上傳 5 個檔案（先做，下一步會用到網址）</label><span class="mins">約 10 分</span></h3>
+</section><section class="card" id="upload" style="--sc:#228163">
+<h3><label class="chk"><input type="checkbox" data-id="upload"> <span class="num">2</span> <span class="t">上傳 5 個檔案（先做，下一步會用到網址）</span></label><span class="mins">約 10 分</span></h3>
 <p class="why">這些檔案原本掛在舊站，或檔名不合規（含括號）。已經全部下載並改好中文檔名，而且驗證過都是「文字可選取」的 PDF/ODT，符合無障礙規範。</p>
 <ol class='steps'>
 <li>檔案在電腦的 <code>G:\Agent\XOOPS\work\fixes\</code> 資料夾裡</li>
@@ -216,8 +279,8 @@ footer a { color:var(--accent); }
 <li>📄 校外人士協助教學或活動要點.pdf <span class='sz'>90 KB</span></li>
 </ul>
 <p class="note">💡 檔名千萬不要改回英文或加括號——「檔名要有意義的中文、不可含 &amp;#38; # % 等特殊符號」是規範明文。</p>
-</section><section class="card" id="blocks">
-<h3><label class="chk"><input type="checkbox" data-id="blocks"> <span class="num">3</span> 貼 5 個區塊修正檔（修掉 55 處問題）</label><span class="mins">約 25 分</span></h3>
+</section><section class="card" id="blocks" style="--sc:#228171">
+<h3><label class="chk"><input type="checkbox" data-id="blocks"> <span class="num">3</span> <span class="t">貼 5 個區塊修正檔（修掉 55 處問題）</span></label><span class="mins">約 25 分</span></h3>
 <p class="why">首頁區塊有 9 條死連結（從舊站複製時沿用了 /uploads/ 這種路徑，在新站會掉到共構平台首頁），加上一堆 title 用詞不合規。</p>
 <ol class='steps'>
 <li>後台 → 「<b>區塊管理</b>」</li>
@@ -233,8 +296,8 @@ footer a { color:var(--accent); }
 <div class="copyrow"><span>區塊：石門網路教學資源</span><button class="btn" data-store="blocks" data-key="石門網路教學資源">複製</button></div>
 <div class="copyrow"><span>區塊：重要宣導連結</span><button class="btn" data-store="blocks" data-key="重要宣導連結">複製</button></div>
 <p class="note">💡 修正後全站 title 只剩三種寫法：「PDF文件，另開新視窗」「ODT文件，另開新視窗」「另開新視窗」。</p>
-</section><section class="card" id="textcolor">
-<h3><label class="chk"><input type="checkbox" data-id="textcolor"> <span class="num">4</span> 改三個頁面的文字顏色</label><span class="mins">約 10 分</span></h3>
+</section><section class="card" id="textcolor" style="--sc:#22817f">
+<h3><label class="chk"><input type="checkbox" data-id="textcolor"> <span class="num">4</span> <span class="t">改三個頁面的文字顏色</span></label><span class="mins">約 10 分</span></h3>
 <p class="why">Bootstrap 的 .text-secondary 是 #6c757d，在淺灰底上對比只有 4.45～4.48，差一點點過不了 4.5。中心特別點名了校史沿革這一項。</p>
 <ol class='steps'>
 <li>到該頁面 → <b>編輯</b> → 點「<b>原始碼</b>」</li>
@@ -247,8 +310,8 @@ footer a { color:var(--accent); }
 <tr><td>歷任校長</td><td><code>color:#0d9488</code></td><td><code>color:#0f766e</code></td></tr>
 </tbody></table></div>
 <p class="note">💡 以後寫內容直接避開 .text-secondary 和 .text-muted，要淺灰質感就用 #495057。</p>
-</section><section class="card" id="content">
-<h3><label class="chk"><input type="checkbox" data-id="content"> <span class="num">5</span> 補 2 篇缺漏的內容（走 Monica）</label><span class="mins">約 30 分</span></h3>
+</section><section class="card" id="content" style="--sc:#247d89">
+<h3><label class="chk"><input type="checkbox" data-id="content"> <span class="num">5</span> <span class="t">補 2 篇缺漏的內容（走 Monica）</span></label><span class="mins">約 30 分</span></h3>
 <p class="why">舊站學校簡介有 7 篇，新站只有 6 篇，少了「石門校歌」。另外「導師及科任」的班級對照表也還沒搬。</p>
 <ol class='steps'>
 <li>下面點「複製」→ 內容會整份複製到剪貼簿（提示詞已經寫在裡面，不用另外設定）</li>
@@ -259,8 +322,8 @@ footer a { color:var(--accent); }
 </ol>
 <p class="note priv">🔒 這一步要用到的資料含個人信箱與分機，公開版不提供。請開電腦上的 <code>G:\Agent\XOOPS\members\</code>（成員批次資料）或 <code>work\7\monica_input.txt</code>、<code>work\28\monica_input.txt</code>（Monica 輸入包），或直接用本機版的 <code>遷移操作台.html</code>。</p>
 <p class="note">💡 石門校歌放「學校簡介」，導師及科任建議放「教務處 → 自由編輯頁」。</p>
-</section><section class="card" id="members">
-<h3><label class="chk"><input type="checkbox" data-id="members"> <span class="num">6</span> 補成員資料</label><span class="mins">約 25 分</span></h3>
+</section><section class="card" id="members" style="--sc:#297b99">
+<h3><label class="chk"><input type="checkbox" data-id="members"> <span class="num">6</span> <span class="t">補成員資料</span></label><span class="mins">約 25 分</span></h3>
 <p class="why">輔導室 4 位資源班教師缺 Email；幼兒園處室還沒有任何成員。</p>
 <ol class='steps'>
 <li><b>資源班教師 Email</b>：到<b>舊站後台</b> → tad_users 大量會員管理 → 切換到輔導室群組 → 就能看到 4 位老師的信箱，再回新站補上</li>
@@ -272,8 +335,8 @@ footer a { color:var(--accent); }
 <p class="fmt">格式：<code>職稱|姓名|Email|電話#分機|業務1;業務2</code></p>
 <p class="note priv">🔒 這一步要用到的資料含個人信箱與分機，公開版不提供。請開電腦上的 <code>G:\Agent\XOOPS\members\</code>（成員批次資料）或 <code>work\7\monica_input.txt</code>、<code>work\28\monica_input.txt</code>（Monica 輸入包），或直接用本機版的 <code>遷移操作台.html</code>。</p>
 <p class="note">💡 「成員設定」只是讓業務職掌頁面有內容，不代表有發文權限——權限在「群組帳號設定」。</p>
-</section><section class="card" id="news">
-<h3><label class="chk"><input type="checkbox" data-id="news"> <span class="num">7</span> 連續發幾天公告</label></h3>
+</section><section class="card" id="news" style="--sc:#2d75a9">
+<h3><label class="chk"><input type="checkbox" data-id="news"> <span class="num">7</span> <span class="t">連續發幾天公告</span></label></h3>
 <p class="why">送審門檻之一是「讓行政人員進去發個兩三天的公告」，做出「這是一個活的網站」的樣子。</p>
 <ol class='steps'>
 <li>請各處室同仁登入新站，實際發幾則公告</li>
@@ -282,8 +345,8 @@ footer a { color:var(--accent); }
 <li>（沒有文字檔就把海報丟給 Monica，讓它把文字讀出來）</li>
 </ol>
 <p class="note">💡 研習原話：「只要海報裡面的內容有放在公告裡那就 OK；如果只寫『內容如題』然後丟兩張海報，那不行。」</p>
-</section><section class="card" id="verify">
-<h3><label class="chk"><input type="checkbox" data-id="verify"> <span class="num">8</span> 跑檢查確認全部歸零</label><span class="mins">約 5 分</span></h3>
+</section><section class="card" id="verify" style="--sc:#2d63a9">
+<h3><label class="chk"><input type="checkbox" data-id="verify"> <span class="num">8</span> <span class="t">跑檢查確認全部歸零</span></label><span class="mins">約 5 分</span></h3>
 <p class="why">自己先掃過一遍，比等 Freego 掃全站快很多。</p>
 <ol class='steps'>
 <li>在專案資料夾開命令列，依序執行下面三行</li>
@@ -292,8 +355,8 @@ footer a { color:var(--accent); }
 <div class="copyrow"><span>檢查連結與 AA 問題：<code>python scripts/audit_new_site.py --check-links</code></span><button class="btn" data-val="python scripts/audit_new_site.py --check-links">複製</button></div>
 <div class="copyrow"><span>檢查文字對比度：<code>python scripts/check_contrast.py</code></span><button class="btn" data-val="python scripts/check_contrast.py">複製</button></div>
 <div class="copyrow"><span>比對新舊站內容：<code>python scripts/compare_sites.py</code></span><button class="btn" data-val="python scripts/compare_sites.py">複製</button></div>
-</section><h2 class="phase" style="--c:#b45309">送審<span class="cnt">3 個步驟</span></h2><section class="card" id="switch">
-<h3><label class="chk"><input type="checkbox" data-id="switch"> <span class="num">1</span> 通知中心切換正式網址</label></h3>
+</section></div><h2 class="phase" style="--c:#b45309"><span class="pn">送審</span><span class="cnt">3 個步驟</span></h2><div class="grid"><section class="card" id="switch" style="--sc:#a9672d">
+<h3><label class="chk"><input type="checkbox" data-id="switch"> <span class="num">1</span> <span class="t">通知中心切換正式網址</span></label></h3>
 <p class="why">送審網址必須是 https://www.smes.tyc.edu.tw，而且後台紅字警告「勿使用臨時網址，以免選單無法使用」。</p>
 <ol class='steps'>
 <li>填 XOOPS 共構網站客服表單，或在資訊組長群組洽 <b>Tad（吳弘凱）老師</b></li>
@@ -303,8 +366,8 @@ footer a { color:var(--accent); }
 <li>③ 舊站網址改成 <code>web.smes.tyc.edu.tw</code></li>
 <li>⚠️ 切換後記得回頭把「石門網路教學資源」區塊裡指向 <code>www.smes.tyc.edu.tw/smes_html/</code> 的 6 條連結改成 <code>web.</code></li>
 </ol>
-</section><section class="card" id="freego">
-<h3><label class="chk"><input type="checkbox" data-id="freego"> <span class="num">2</span> Freego 檢測</label><span class="mins">約 60 分</span></h3>
+</section><section class="card" id="freego" style="--sc:#996c29">
+<h3><label class="chk"><input type="checkbox" data-id="freego"> <span class="num">2</span> <span class="t">Freego 檢測</span></label><span class="mins">約 60 分</span></h3>
 <p class="why">送審必要文件。但只佔取得標章難度的 5%——人工審核那 95% 才是重點。</p>
 <ol class='steps'>
 <li>安裝 <b>Eclipse Temurin JRE 21</b>（版本必須 17～21，太高太低都不行）</li>
@@ -317,8 +380,8 @@ footer a { color:var(--accent); }
 <li>通過後程式會提示上傳報告 → 記下<b>上傳編號</b>（在 MODA 資料夾裡）</li>
 </ol>
 <p class="note">💡 後台的 school 模組有「檢測與標章申請」「人工檢測解法」兩個分頁，比講義還細，送審前務必看過。</p>
-</section><section class="card" id="apply">
-<h3><label class="chk"><input type="checkbox" data-id="apply"> <span class="num">3</span> 線上送審</label><span class="mins">約 60 分</span></h3>
+</section><section class="card" id="apply" style="--sc:#896e24">
+<h3><label class="chk"><input type="checkbox" data-id="apply"> <span class="num">3</span> <span class="t">線上送審</span></label><span class="mins">約 60 分</span></h3>
 <p class="why">四大雷區踩到就是秒退，要等 7 天才能重送。</p>
 <ol class='steps'>
 <li>用 <b>E 政府公務帳號</b>登入無障礙網路空間服務網（需自然人憑證 + <b>機關代碼</b>）</li>
@@ -335,8 +398,8 @@ footer a { color:var(--accent); }
 <li><label><input type="checkbox" data-id="apply-c19"> <b>不要提供後台帳密</b>給審查員</label></li>
 </ul></div>
 <p class="note">💡 收到「限期改善」是好消息，代表快過了，5 天內改完點「回覆人工檢測報告」。收到「退件」才要等 7 天。</p>
-</section><h2 class="phase" style="--c:#4c1d95">送審後<span class="cnt">1 個步驟</span></h2><section class="card" id="after">
-<h3><label class="chk"><input type="checkbox" data-id="after"> <span class="num">1</span> 取得標章後 + 慢慢補內容</label></h3>
+</section></div><h2 class="phase" style="--c:#4c1d95"><span class="pn">送審後</span><span class="cnt">1 個步驟</span></h2><div class="grid"><section class="card" id="after" style="--sc:#522da9">
+<h3><label class="chk"><input type="checkbox" data-id="after"> <span class="num">1</span> <span class="t">取得標章後 + 慢慢補內容</span></label></h3>
 <p class="why">研習與中心都強調「做越多越容易被挑毛病，趁資料不多時送審」。這些留到拿到標章後再做。</p>
 <ol class='steps'>
 <li>🥇 <b>掛標章</b>：後台 → 區塊管理 → 「無障礙標章」區塊 → 選標章種類 + 填數發部核發的「專屬檢測記錄網頁編號」</li>
@@ -346,14 +409,16 @@ footer a { color:var(--accent); }
 <li>🛠️ <b>自製小站去留</b>：9 個站已備份 131 MB，決定留舊站或搬 GitHub Pages</li>
 </ol>
 <p class="note">💡 認證有效期 3 年，期間會不定期抽查，所以之後新增內容仍要維持同樣的撰寫紀律。</p>
-</section>
+</section></div>
 
-<div class="tool">
+<div class="tool" style="--sc:#7a5cd0">
   <h3>🎨 對比度小工具</h3>
   <p class="why">臨時要確認某組配色過不過的時候用。內文要 ≥ 4.5，大字 ≥ 3。</p>
-  <label>文字 <input type="color" id="fg" value="#ffffff"></label>
-  <label>背景 <input type="color" id="bg" value="#5d6b47"></label>
-  <p>對比度：<span id="ratio">—</span> <span id="verdict"></span></p>
+  <div class="toolrow">
+    <label>文字 <input type="color" id="fg" value="#ffffff"></label>
+    <label>背景 <input type="color" id="bg" value="#5d6b47"></label>
+    <span>對比度 <span id="ratio">—</span> <span id="verdict"></span></span>
+  </div>
 </div>
 
 <footer>
@@ -437,7 +502,7 @@ calc();
 <script>
 (function () {
   if (!('serviceWorker' in navigator)) return;
-  var APP_VERSION = '2026.08.04-3';
+  var APP_VERSION = '2026.08.05-1';
   var SW_REG = null, UPDATING = false;
 
   function applyUpdate() {
