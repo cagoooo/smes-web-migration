@@ -1,0 +1,4 @@
+{
+  "version": "2026.08.04-1",
+  "notes": "加入 favicon、OG 分享圖、PWA manifest 與 Service Worker 更新通知；RWD 手機平板優化"
+}

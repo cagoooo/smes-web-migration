@@ -1,0 +1,25 @@
+{
+  "name": "pages",
+  "version": "1.0.0",
+  "description": "桃園市龍潭區石門國民小學 舊校網搬遷到教育局 XOOPS 共構平台、 並取得無障礙標章 AA 等級的實作操作手冊。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagoooo/smes-web-migration.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cagoooo/smes-web-migration/issues"
+  },
+  "homepage": "https://github.com/cagoooo/smes-web-migration#readme",
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.0.3",
+    "png-to-ico": "^3.0.2"
+  }
+}

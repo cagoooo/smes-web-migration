@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="石門國小校網遷移操作台">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7d8f63"/>
+      <stop offset="1" stop-color="#3f4a30"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#g)"/>
+  <text x="30" y="40" font-family="Microsoft JhengHei, Noto Sans TC, sans-serif"
+        font-size="34" font-weight="700" fill="#f6f7f4" text-anchor="middle">石</text>
+  <circle cx="48" cy="48" r="12" fill="#d9b166"/>
+  <path d="M42.5 48.2 L46.4 52 L53.5 44.4" fill="none" stroke="#3f4a30"
+        stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

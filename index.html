@@ -2,8 +2,35 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>石門國小校網遷移操作台</title>
+<meta name="description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
+<meta name="theme-color" content="#5d6b47">
+<link rel="canonical" href="https://cagoooo.github.io/smes-web-migration/">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="桃園市龍潭區石門國民小學">
+<meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
+<meta property="og:title" content="石門國小校網遷移操作台">
+<meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
+<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.04-1">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.04-1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="石門國小校網遷移操作台：12 個步驟，從舊校網搬到教育局共構平台">
+<meta property="og:locale" content="zh_TW">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="石門國小校網遷移操作台">
+<meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
+<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.04-1">
+
 <style>
 :root {
   --bg:#f6f7f4; --fg:#1f2933; --card:#fff; --line:#dfe3da;
@@ -75,7 +102,65 @@ ul.files li { padding:.3rem 0; }
 .pass { color:#15803d; } .fail { color:#b91c1c; }
 footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line);
   color:var(--muted); font-size:.88rem; text-align:center; }
+footer a { color:var(--accent); }
 .done h3 { opacity:.5; text-decoration:line-through; }
+
+/* Service Worker 更新通知列 */
+#sw-update-bar { position:fixed; left:50%; bottom:max(16px, env(safe-area-inset-bottom));
+  transform:translateX(-50%); z-index:9999; display:flex; align-items:center;
+  gap:.75rem; flex-wrap:wrap; justify-content:center;
+  background:#2c3423; color:#fff; padding:.75rem 1rem; border-radius:.9rem;
+  box-shadow:0 14px 34px -10px rgba(0,0,0,.55); font-size:.92rem;
+  max-width:calc(100vw - 24px); }
+#sw-update-bar button { cursor:pointer; border:0; border-radius:.5rem;
+  font-weight:700; font-family:inherit; font-size:.9rem; }
+#sw-go { background:linear-gradient(135deg,#e9c877,#d9b166); color:#2c3423; padding:.5rem .95rem; }
+#sw-x { background:transparent; color:#c3ccb4; padding:.4rem .6rem; font-size:1rem; }
+
+/* ── 手機／平板 ───────────────────────────────── */
+@media (max-width: 720px) {
+  body { padding:0 .75rem 3rem; }
+  header.top { padding:1.25rem 0 .8rem; }
+  h1 { font-size:1.3rem; }
+  .sub { font-size:.88rem; }
+  .dl { font-size:.92rem; padding:.4rem .75rem; }
+  h2.phase { font-size:1.02rem; flex-wrap:wrap; gap:.3rem; padding:.45rem .7rem; }
+  .card { padding:.9rem .85rem; border-radius:.5rem; }
+  .card h3 { font-size:.99rem; flex-wrap:wrap; gap:.35rem; }
+  .mins { padding-left:2rem; }
+  .why { font-size:.89rem; }
+  ol.steps { padding-left:1.15rem; }
+  ol.steps li { margin:.45rem 0; }
+  /* 手機上文字與按鈕分兩行，按鈕不會把文字擠成一條線 */
+  .copyrow { flex-wrap:wrap; align-items:stretch; }
+  .copyrow span { flex:1 1 100%; }
+  .copyrow .btn { width:100%; padding:.55rem; }
+  table { font-size:.82rem; }
+  th, td { padding:.4rem .45rem; }
+  .tool label { display:flex; align-items:center; gap:.5rem;
+    margin:0 0 .6rem; justify-content:space-between; }
+  #ratio { font-size:1.3rem; }
+  #sw-update-bar { left:12px; right:12px; transform:none; max-width:none; }
+}
+
+/* 很窄的手機（iPhone SE 等） */
+@media (max-width: 380px) {
+  h1 { font-size:1.18rem; }
+  .card { padding:.8rem .7rem; }
+  code { font-size:.82em; }
+}
+
+/* 觸控裝置：把可點擊目標放大到好按（WCAG 2.5.5） */
+@media (pointer: coarse) {
+  .chk input, .checks input { width:1.35rem; height:1.35rem; }
+  .btn { min-height:2.75rem; }
+  .chk { padding:.15rem 0; }
+}
+
+@media print {
+  .btn, #sw-update-bar { display:none; }
+  .card { break-inside:avoid; border-color:#999; }
+}
 </style>
 </head>
 <body>
@@ -343,5 +428,80 @@ function calc() {
 ["fg", "bg"].forEach(id => document.getElementById(id).addEventListener("input", calc));
 calc();
 </script>
+
+<script>
+(function () {
+  if (!('serviceWorker' in navigator)) return;
+  var APP_VERSION = '2026.08.04-1';
+  var SW_REG = null, UPDATING = false;
+
+  function applyUpdate() {
+    if (UPDATING) return;
+    UPDATING = true;
+    var bar = document.getElementById('sw-update-bar');
+    if (bar) bar.remove();
+    if (SW_REG && SW_REG.waiting) {
+      SW_REG.waiting.postMessage({ type: 'SKIP_WAITING' });
+      setTimeout(function () { location.reload(); }, 1200);
+    } else {
+      location.reload();
+    }
+  }
+
+  function showBar() {
+    if (document.getElementById('sw-update-bar')) return;
+    var b = document.createElement('div');
+    b.id = 'sw-update-bar';
+    b.setAttribute('role', 'status');
+    b.innerHTML = '<span>操作台有新版本</span>' +
+      '<button id="sw-go" type="button">重新整理載入</button>' +
+      '<button id="sw-x" type="button" aria-label="關閉更新提示">✕</button>';
+    document.body.appendChild(b);
+    document.getElementById('sw-x').onclick = function () { b.remove(); };
+    document.getElementById('sw-go').onclick = applyUpdate;
+  }
+
+  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' })
+    .then(function (reg) {
+      SW_REG = reg;
+      if (reg.waiting && navigator.serviceWorker.controller) showBar();
+      reg.addEventListener('updatefound', function () {
+        var nw = reg.installing;
+        if (!nw) return;
+        nw.addEventListener('statechange', function () {
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) showBar();
+        });
+      });
+      setInterval(function () { reg.update().catch(function () {}); }, 60000);
+    }).catch(function () {});
+
+  navigator.serviceWorker.addEventListener('controllerchange', function () {
+    if (sessionStorage.getItem('sw_reloaded')) return;
+    sessionStorage.setItem('sw_reloaded', '1');
+    setTimeout(function () { sessionStorage.removeItem('sw_reloaded'); }, 4000);
+    location.reload();
+  });
+
+  function checkVer() {
+    fetch('version.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d && d.version && d.version !== APP_VERSION) {
+          if (SW_REG) SW_REG.update().catch(function () {});
+          showBar();
+        }
+      }).catch(function () {});
+  }
+  ['focus', 'online', 'pageshow'].forEach(function (ev) {
+    window.addEventListener(ev, checkVer);
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') checkVer();
+  });
+  setTimeout(checkVer, 8000);
+  setInterval(checkVer, 180000);
+})();
+</script>
+
 </body>
 </html>
