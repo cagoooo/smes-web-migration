@@ -1,4 +1,4 @@
 {
-  "version": "2026.08.04-1",
-  "notes": "加入 favicon、OG 分享圖、PWA manifest 與 Service Worker 更新通知；RWD 手機平板優化"
+    "version":  "2026.08.04-2",
+    "notes":  "RWD：手機觸控目標放大到 24x24 符合 WCAG 2.5.5"
 }

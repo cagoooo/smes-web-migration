@@ -1,4 +1,4 @@
-# 一鍵升版：同步 version.json / sw.js 的 BUILD_VERSION / index.html 的 APP_VERSION
+﻿# 一鍵升版：同步 version.json / sw.js 的 BUILD_VERSION / index.html 的 APP_VERSION
 #
 # index.html 是由 ..\..\scripts\build_dashboard.py --public 產生的，
 # 所以流程是：先寫 version.json → 重跑 build_dashboard → 再改 sw.js。
