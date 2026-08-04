@@ -11,7 +11,7 @@
  * ⚠️ 每次部署都要改 BUILD_VERSION（跑 scripts/bump-version.ps1 會自動同步三處），
  *    sw.js 的 byte 沒變的話瀏覽器會當作同一支，永遠不會觸發更新通知。
  */
-const BUILD_VERSION = '2026.08.05-1';
+const BUILD_VERSION = '2026.08.05-2';
 const CACHE = 'smes-migration-' + BUILD_VERSION;
 
 const PRECACHE = [
