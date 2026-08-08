@@ -18,8 +18,8 @@
 <meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
 <meta property="og:title" content="石門國小校網遷移操作台">
 <meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-3">
-<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-3">
+<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-4">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-4">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="石門國小校網遷移操作台">
 <meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-3">
+<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-4">
 
 <style>
 :root {
@@ -302,7 +302,7 @@ footer a { color:var(--accent); font-weight:700; }
 <p class="note">💡 檔名千萬不要改回英文或加括號——「檔名要有意義的中文、不可含 &amp;#38; # % 等特殊符號」是規範明文。</p>
 </section><section class="card" id="blocks" style="--sc:#228171">
 <h3><label class="chk"><input type="checkbox" data-id="blocks"> <span class="num">3</span> <span class="t">貼 5 個區塊修正檔（修掉 55 處問題）</span></label><span class="mins">約 25 分</span></h3>
-<p class="why">首頁區塊有 9 條死連結（從舊站複製時沿用了 /uploads/ 這種路徑，在新站會掉到共構平台首頁），加上一堆 title 用詞不合規。</p>
+<p class="why">先前從舊站搬入的首頁區塊曾有 9 條死連結與一批 title 用詞問題；目前實測已有 6 條自製小站連結修好，剩下 3 條要等檔案或頁面網址補齊。</p>
 <ol class='steps'>
 <li>後台 → 「<b>區塊管理</b>」</li>
 <li>找到下面對應的區塊 → 點<b>編輯</b></li>
@@ -318,19 +318,17 @@ footer a { color:var(--accent); font-weight:700; }
 <div class="copyrow"><span>區塊：重要宣導連結</span><button class="btn" data-store="blocks" data-key="重要宣導連結">複製</button></div>
 <p class="note">💡 修正後全站 title 只剩三種寫法：「PDF文件，另開新視窗」「ODT文件，另開新視窗」「另開新視窗」。</p>
 </section><section class="card" id="textcolor" style="--sc:#22817f">
-<h3><label class="chk"><input type="checkbox" data-id="textcolor"> <span class="num">4</span> <span class="t">改三個頁面的文字顏色</span></label><span class="mins">約 10 分</span></h3>
-<p class="why">Bootstrap 的 .text-secondary 是 #6c757d，在淺灰底上對比只有 4.45～4.48，差一點點過不了 4.5。中心特別點名了校史沿革這一項。</p>
+<h3><label class="chk"><input type="checkbox" data-id="textcolor"> <span class="num">4</span> <span class="t">本機文字色彩警示（不列為必要待辦）</span></label></h3>
+<p class="why">本機腳本曾標出校史沿革、石門粉絲團與歷任校長的色彩警示；但 2026-08-08 臨時站 Freego 核心檢測 184 頁全部 YES、AA=0，目前不把這些警示直接當成必須改色的送審門檻。</p>
 <ol class='steps'>
-<li>到該頁面 → <b>編輯</b> → 點「<b>原始碼</b>」</li>
-<li>用 Ctrl+F 找下面表格的「原本」那段字，改成「改成」那段</li>
-<li>切回所見即所得 → <b>儲存</b></li>
+<li>目前不強制修改這三個頁面的文字顏色，也不需要為了本機警示先停下來</li>
+<li>若日後在後台啟用處室自訂顏色，仍要確認文字與背景對比度大於 4.5:1</li>
+<li>只有正式 Freego 或人工審核報告明確指出問題時，才回到頁面編輯修正</li>
 </ol>
 <div class="tbl"><table><thead><tr><th>頁面</th><th>原本</th><th>改成</th></tr></thead><tbody>
-<tr><td>校史沿革</td><td><code>&lt;p class=&quot;fs-5 text-secondary&quot;&gt;紀錄學校百年來的點滴與成長&lt;/p&gt;</code></td><td><code>&lt;p class=&quot;fs-5&quot; style=&quot;color:#495057;&quot;&gt;紀錄學校百年來的點滴與成長&lt;/p&gt;</code></td></tr>
-<tr><td>石門粉絲團</td><td><code>class=&quot;... text-secondary&quot;（說明文字那段）</code></td><td><code>拿掉 text-secondary，改 style=&quot;color:#495057;&quot;</code></td></tr>
-<tr><td>歷任校長</td><td><code>color:#0d9488</code></td><td><code>color:#0f766e</code></td></tr>
+<tr><td>本機警示位置</td><td><code>校史沿革、石門粉絲團、歷任校長</code></td><td><code>目前保留，等正式報告指出再修</code></td></tr>
 </tbody></table></div>
-<p class="note">💡 以後寫內容直接避開 .text-secondary 和 .text-muted，要淺灰質感就用 #495057。</p>
+<p class="note">💡 對比度工具保留作為找線索的小工具；送審判定以正式網址的 Freego 與人工審核為準。</p>
 </section><section class="card" id="content" style="--sc:#247d89">
 <h3><label class="chk"><input type="checkbox" data-id="content"> <span class="num">5</span> <span class="t">補 2 篇缺漏的內容（走 Monica）</span></label><span class="mins">約 30 分</span></h3>
 <p class="why">舊站學校簡介有 7 篇，新站只有 6 篇，少了「石門校歌」。另外「導師及科任」的班級對照表也還沒搬。</p>
@@ -367,15 +365,16 @@ footer a { color:var(--accent); font-weight:700; }
 </ol>
 <p class="note">💡 研習原話：「只要海報裡面的內容有放在公告裡那就 OK；如果只寫『內容如題』然後丟兩張海報，那不行。」</p>
 </section><section class="card" id="verify" style="--sc:#2d63a9">
-<h3><label class="chk"><input type="checkbox" data-id="verify"> <span class="num">8</span> <span class="t">預檢與 Freego 結果核對</span></label><span class="mins">約 5 分</span></h3>
-<p class="why">本機腳本用來找出連結與內容線索；正式送審判定以正式網址的 Freego 全網站 AA 報告為準。</p>
+<h3><label class="chk"><input type="checkbox" data-id="verify"> <span class="num">8</span> <span class="t">可選本機預檢與 Freego 結果核對</span></label><span class="mins">約 5 分</span></h3>
+<p class="why">本機腳本只用來找出連結與內容線索，不是送審必要門檻；正式送審判定以正式網址的 Freego 全網站 AA 報告為準。</p>
 <ol class='steps'>
-<li>在專案資料夾開命令列，依序執行下面三行</li>
-<li>記錄本機檢查結果，並在正式網址切換後與 Freego 報告交叉核對；不要只因本機色彩警示就強制改色</li>
+<li>想先找線索時，才在專案資料夾開命令列執行下面的本機檢查</li>
+<li>本機檢查可略過；若執行，記錄結果並在正式網址切換後與 Freego 報告交叉核對</li>
+<li>不要只因本機色彩警示就強制改色</li>
 </ol>
-<div class="copyrow"><span>檢查連結與 AA 問題：<code>python scripts/audit_new_site.py --check-links</code></span><button class="btn" data-val="python scripts/audit_new_site.py --check-links">複製</button></div>
-<div class="copyrow"><span>檢查文字對比度：<code>python scripts/check_contrast.py</code></span><button class="btn" data-val="python scripts/check_contrast.py">複製</button></div>
-<div class="copyrow"><span>比對新舊站內容：<code>python scripts/compare_sites.py</code></span><button class="btn" data-val="python scripts/compare_sites.py">複製</button></div>
+<div class="copyrow"><span>可選：檢查連結與 AA 問題：<code>python scripts/audit_new_site.py --check-links</code></span><button class="btn" data-val="python scripts/audit_new_site.py --check-links">複製</button></div>
+<div class="copyrow"><span>可選：檢查文字對比度：<code>python scripts/check_contrast.py</code></span><button class="btn" data-val="python scripts/check_contrast.py">複製</button></div>
+<div class="copyrow"><span>可選：比對新舊站內容：<code>python scripts/compare_sites.py</code></span><button class="btn" data-val="python scripts/compare_sites.py">複製</button></div>
 </section></div><h2 class="phase" style="--c:#b45309"><span class="pn">送審</span><span class="cnt">3 個步驟</span></h2><div class="grid"><section class="card" id="switch" style="--sc:#a9672d">
 <h3><label class="chk"><input type="checkbox" data-id="switch"> <span class="num">1</span> <span class="t">通知中心切換正式網址</span></label></h3>
 <p class="why">送審網址必須是 https://www.smes.tyc.edu.tw，而且後台紅字警告「勿使用臨時網址，以免選單無法使用」。使用者已決定下週通知中心切換，舊站保留為 web.smes.tyc.edu.tw。</p>
@@ -386,9 +385,11 @@ footer a { color:var(--accent); font-weight:700; }
 <li>① 學校 DNS 的 www 以 <b>CNAME</b> 指向共構平台</li>
 <li>② 後台把網站狀態從「測試站」改成「<b>正式站</b>」</li>
 <li>③ 舊站保留並改以 <code>web.smes.tyc.edu.tw</code> 存取</li>
-<li>⚠️ 切換後記得回頭把「石門網路教學資源」區塊裡指向 <code>www.smes.tyc.edu.tw/smes_html/</code> 的 6 條連結改成 <code>web.</code></li>
+<li>④ 切換完成後登入新站後台 → 初始化設定 → 點擊「<b>處室設定</b>」標題一次，重新產生行政處室區塊與導覽列所使用的 JSON，讓處室連結改成正式網址</li>
+<li>⚠️ 再把「石門網路教學資源」區塊裡指向 <code>www.smes.tyc.edu.tw/smes_html/</code> 的 6 條連結改成 <code>web.</code></li>
 <li>切換完成後先測試首頁、選單、附件與重要頁面，再進行正式網址 Freego 檢測</li>
 </ol>
+<p class="note">💡 平台手冊明載：臨時網址切換成正式網址後，必須重新點擊「處室設定」標題，更新行政處室連結。參考網址：https://schoolweb.tyc.edu.tw/modules/tad_book3/page.php?tbdsn=4&amp;tbsn=1</p>
 </section><section class="card" id="freego" style="--sc:#996c29">
 <h3><label class="chk"><input type="checkbox" data-id="freego"> <span class="num">2</span> <span class="t">Freego 檢測</span></label><span class="mins">約 60 分</span></h3>
 <p class="why">正式送審必要的軟體檢測；臨時網址已完成 184 頁通過，但正式網址切換後仍要重新跑一次。</p>
@@ -546,7 +547,7 @@ calc();
 <script>
 (function () {
   if (!('serviceWorker' in navigator)) return;
-  var APP_VERSION = '2026.08.08-3';
+  var APP_VERSION = '2026.08.08-4';
   var SW_REG = null, UPDATING = false;
 
   function applyUpdate() {
