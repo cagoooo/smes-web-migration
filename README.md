@@ -22,7 +22,15 @@
 - **難度分佈**：Freego 只佔 5%，人工審核那 95% 才是大魔王
 - **台南實測**：平均往返 2.3 次、平均 18 天、最長 65 天
 - **一改就退**：「網站導覽」四個字一字都不能動；「跳至主內容區」不能拿掉
-- **對比度**：內文 ≥ 4.5:1。Bootstrap 的 `.text-secondary`（#6c757d）在淺底上只有 4.4～4.6，最容易踩
+- **對比度**：本機工具只作提示；目前送審判定以 Freego 與人工審核為準，只有報告明確指出問題時才修正
+
+## 2026/08/08 進度
+
+- 臨時站 `https://schoolweb2.tyc.edu.tw/~smes_www/` 已完成 Freego 全網站 AA 軟體檢測：184 頁全部 HTTP 200、`YES`、`AA=0`。
+- 下週通知中心切換正式網址 `https://www.smes.tyc.edu.tw`；舊網站保留為 `https://web.smes.tyc.edu.tw`。
+- 正式網址切換後，仍要以正式網址重新執行 Freego 全網站 AA，才進入標章申請。
+- 依[數位發展部 Freego 現行規定](https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70)，Freego 通過後申請時不必上傳報告；若有排除設定，於申請備註說明。
+- 公開版不含 `members/` 教職員個資；9 個舊自製小站的去留仍待確認。
 
 ## 隱私說明
 

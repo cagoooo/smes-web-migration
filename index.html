@@ -18,8 +18,8 @@
 <meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
 <meta property="og:title" content="石門國小校網遷移操作台">
 <meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.05-2">
-<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.05-2">
+<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-2">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="石門國小校網遷移操作台">
 <meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.05-2">
+<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-2">
 
 <style>
 :root {
@@ -252,11 +252,21 @@ footer a { color:var(--accent); font-weight:700; }
     <button id="theme" type="button" aria-live="polite">🌙 深色</button>
   </div>
   <p class="sub">桃園市龍潭區石門國民小學 · 舊站搬到共構新站 · 取得無障礙 AA 標章</p>
-  <p class="sub">舊站 www.smes.tyc.edu.tw ＿ 新站 schoolweb2.tyc.edu.tw/~smes_www/</p>
-  <div class="dl">距離 115/12/18 取得標章死線：135 天</div>
+  <p class="sub">正式站 www.smes.tyc.edu.tw ＿ 舊站備份 web.smes.tyc.edu.tw ＿ 臨時站 schoolweb2.tyc.edu.tw/~smes_www/</p>
+  <div class="dl">距離 115/12/18 取得標章死線：132 天</div>
   <div class="bar"><i id="prog"></i></div>
   <p class="barlab" id="proglab">進度 0 / 12</p>
 </header>
+
+<div class="note" style="margin-bottom:1.5rem; border-left:4px solid #b45309">
+  <b>2026/08/08 進度更新：</b>臨時站 Freego AA 軟體檢測已完成，石門新站核心 184 頁全部 <code>YES</code>、<code>AA=0</code>、HTTP 200。
+  <ul style="margin:.55rem 0 0 1.2rem">
+    <li>下週通知中心切換正式網址：<code>www.smes.tyc.edu.tw</code></li>
+    <li>舊網站保留為：<code>web.smes.tyc.edu.tw</code></li>
+    <li>正式網址切換後，仍須重新跑一次 Freego 全網站 AA，才進入標章申請</li>
+    <li>本機色彩警示不再作為強制改色依據；以 Freego 與人工審核報告為準</li>
+  </ul>
+</div>
 
 <div class="note" style="margin-bottom:1.5rem">
   <b>怎麼用這一頁：</b>由上往下做，做完一項就打勾（進度會自動記住，關掉重開也還在）。
@@ -265,19 +275,14 @@ footer a { color:var(--accent); font-weight:700; }
 </div>
 
 <h2 class="phase" style="--c:#0f766e"><span class="pn">送審前</span><span class="cnt">8 個步驟</span></h2><div class="grid"><section class="card" id="color" style="--sc:#228155">
-<h3><label class="chk"><input type="checkbox" data-id="color"> <span class="num">1</span> <span class="t">改處室顏色（1 分鐘，一次修好 27 處）</span></label><span class="mins">約 1 分</span></h3>
-<p class="why">所有處室的職稱標籤都是白字配 #7e8f62 綠底，對比只有 3.50，低於規範要求的 4.5。這是目前最嚴重、也最好修的一項。</p>
+<h3><label class="chk"><input type="checkbox" data-id="color"> <span class="num">1</span> <span class="t">Freego 通過，暫不強制改處室顏色</span></label></h3>
+<p class="why">本機對比度腳本曾列出色彩警示，但 2026-08-08 石門新站核心臨時網址的 Freego 結果為 184 頁全部 YES、AA=0。目前以 Freego 與正式人工審核結果為準，不把本機警示直接當成送審失敗。</p>
 <ol class='steps'>
-<li>後台左側點「<b>行政處室</b>」→ 點任一個處室（例如教務處）</li>
-<li>進入後選「<b>基本資訊</b>」分頁</li>
-<li>找到「圖示」欄位<b>右邊</b>的兩個顏色欄：<b>選單底色</b>、<b>選單字色</b></li>
-<li>把<b>選單底色</b>從 <code>#7e8f62</code> 改成 <code>#5d6b47</code>（選單字色維持白色不動）</li>
-<li>確認欄位右側顯示的對比度變成 <b>5.74:1</b>（系統會即時算給你看）</li>
-<li>⭐ 把右邊的「<b>複製顏色到所有處室</b>」開關<b>打開</b></li>
-<li>按「<b>儲存</b>」——7 個處室一次全部套用完成</li>
+<li>目前不修改處室顏色，也不把本機 33 組色彩警示直接視為 Freego 失敗</li>
+<li>正式網址切換後重新執行 Freego 全網站 AA</li>
+<li>只有 Freego 或人工審核報告明確指出色彩問題時才修正</li>
 </ol>
-<div class="copyrow"><span>選單底色色碼：<code>#5d6b47</code></span><button class="btn" data-val="#5d6b47">複製</button></div>
-<p class="note">💡 講義 2-2-1 寫「顏色用途不多、只影響行政處室區塊」，實測已經過時——業務職掌頁的職稱標籤也吃這組顏色。</p>
+<p class="note">💡 色彩檢查工具保留作為找線索的小工具；送審判定以正式網址的 Freego 與人工審核為準。</p>
 </section><section class="card" id="upload" style="--sc:#228163">
 <h3><label class="chk"><input type="checkbox" data-id="upload"> <span class="num">2</span> <span class="t">上傳 5 個檔案（先做，下一步會用到網址）</span></label><span class="mins">約 10 分</span></h3>
 <p class="why">這些檔案原本掛在舊站，或檔名不合規（含括號）。已經全部下載並改好中文檔名，而且驗證過都是「文字可選取」的 PDF/ODT，符合無障礙規範。</p>
@@ -362,29 +367,31 @@ footer a { color:var(--accent); font-weight:700; }
 </ol>
 <p class="note">💡 研習原話：「只要海報裡面的內容有放在公告裡那就 OK；如果只寫『內容如題』然後丟兩張海報，那不行。」</p>
 </section><section class="card" id="verify" style="--sc:#2d63a9">
-<h3><label class="chk"><input type="checkbox" data-id="verify"> <span class="num">8</span> <span class="t">跑檢查確認全部歸零</span></label><span class="mins">約 5 分</span></h3>
-<p class="why">自己先掃過一遍，比等 Freego 掃全站快很多。</p>
+<h3><label class="chk"><input type="checkbox" data-id="verify"> <span class="num">8</span> <span class="t">預檢與 Freego 結果核對</span></label><span class="mins">約 5 分</span></h3>
+<p class="why">本機腳本用來找出連結與內容線索；正式送審判定以正式網址的 Freego 全網站 AA 報告為準。</p>
 <ol class='steps'>
 <li>在專案資料夾開命令列，依序執行下面三行</li>
-<li>目標：<b>站內連結失效 0 項、對比度 0 組不合格</b></li>
+<li>記錄本機檢查結果，並在正式網址切換後與 Freego 報告交叉核對；不要只因本機色彩警示就強制改色</li>
 </ol>
 <div class="copyrow"><span>檢查連結與 AA 問題：<code>python scripts/audit_new_site.py --check-links</code></span><button class="btn" data-val="python scripts/audit_new_site.py --check-links">複製</button></div>
 <div class="copyrow"><span>檢查文字對比度：<code>python scripts/check_contrast.py</code></span><button class="btn" data-val="python scripts/check_contrast.py">複製</button></div>
 <div class="copyrow"><span>比對新舊站內容：<code>python scripts/compare_sites.py</code></span><button class="btn" data-val="python scripts/compare_sites.py">複製</button></div>
 </section></div><h2 class="phase" style="--c:#b45309"><span class="pn">送審</span><span class="cnt">3 個步驟</span></h2><div class="grid"><section class="card" id="switch" style="--sc:#a9672d">
 <h3><label class="chk"><input type="checkbox" data-id="switch"> <span class="num">1</span> <span class="t">通知中心切換正式網址</span></label></h3>
-<p class="why">送審網址必須是 https://www.smes.tyc.edu.tw，而且後台紅字警告「勿使用臨時網址，以免選單無法使用」。</p>
+<p class="why">送審網址必須是 https://www.smes.tyc.edu.tw，而且後台紅字警告「勿使用臨時網址，以免選單無法使用」。使用者已決定下週通知中心切換，舊站保留為 web.smes.tyc.edu.tw。</p>
 <ol class='steps'>
-<li>填 XOOPS 共構網站客服表單，或在資訊組長群組洽 <b>Tad（吳弘凱）老師</b></li>
+<li>下週通知中心，請協助將正式網址切換為 <code>www.smes.tyc.edu.tw</code></li>
+<li>可填 XOOPS 共構網站客服表單，或寄信至 <code>center_mis@ms.tyc.edu.tw</code></li>
 <li>請中心做三件事（學校不用自己做）：</li>
 <li>① 學校 DNS 的 www 以 <b>CNAME</b> 指向共構平台</li>
 <li>② 後台把網站狀態從「測試站」改成「<b>正式站</b>」</li>
-<li>③ 舊站網址改成 <code>web.smes.tyc.edu.tw</code></li>
+<li>③ 舊站保留並改以 <code>web.smes.tyc.edu.tw</code> 存取</li>
 <li>⚠️ 切換後記得回頭把「石門網路教學資源」區塊裡指向 <code>www.smes.tyc.edu.tw/smes_html/</code> 的 6 條連結改成 <code>web.</code></li>
+<li>切換完成後先測試首頁、選單、附件與重要頁面，再進行正式網址 Freego 檢測</li>
 </ol>
 </section><section class="card" id="freego" style="--sc:#996c29">
 <h3><label class="chk"><input type="checkbox" data-id="freego"> <span class="num">2</span> <span class="t">Freego 檢測</span></label><span class="mins">約 60 分</span></h3>
-<p class="why">送審必要文件。但只佔取得標章難度的 5%——人工審核那 95% 才是重點。</p>
+<p class="why">正式送審必要的軟體檢測；臨時網址已完成 184 頁通過，但正式網址切換後仍要重新跑一次。</p>
 <ol class='steps'>
 <li>安裝 <b>Eclipse Temurin JRE 21</b>（版本必須 17～21，太高太低都不行）</li>
 <li>安裝時「自訂安裝」畫面把 <code>JavaSoft (Oracle) registry keys</code> 改成「<b>安裝</b>」</li>
@@ -393,16 +400,19 @@ footer a { color:var(--accent); font-weight:700; }
 <li>開 Freego → 輸入 <code>https://www.smes.tyc.edu.tw</code></li>
 <li>型態選「<b>全網站</b>」、等級選「<b>AA</b>」→ 開始</li>
 <li>掃描時若出現 <code>modules/tad_login/index.php?login&#38;op=tn</code> 載入逾時，<b>那是正常的，不影響送審</b></li>
-<li>通過後程式會提示上傳報告 → 記下<b>上傳編號</b>（在 MODA 資料夾裡）</li>
+<li>若有排除資料夾或其他檢測條件，記下設定與原因，申請時在備註說明</li>
+<li>保留 Freego 的 <code>.cat</code> 檢測檔作為專案紀錄；依數發部現行規定，申請時不必上傳報告</li>
+<li>查看 <a href="https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70" target="_blank" rel="noopener noreferrer">數發部 Freego 現行說明</a></li>
 </ol>
-<p class="note">💡 後台的 school 模組有「檢測與標章申請」「人工檢測解法」兩個分頁，比講義還細，送審前務必看過。</p>
+<p class="note">💡 後台 school 模組的「檢測與標章申請」「人工檢測解法」仍建議送審前看過。</p>
 </section><section class="card" id="apply" style="--sc:#896e24">
 <h3><label class="chk"><input type="checkbox" data-id="apply"> <span class="num">3</span> <span class="t">線上送審</span></label><span class="mins">約 60 分</span></h3>
-<p class="why">四大雷區踩到就是秒退，要等 7 天才能重送。</p>
+<p class="why">Freego 通過只是申請前提；還要以公務身分完成自我評量，並等待數發部軟體與人工審核。</p>
 <ol class='steps'>
 <li>用 <b>E 政府公務帳號</b>登入無障礙網路空間服務網（需自然人憑證 + <b>機關代碼</b>）</li>
 <li>會員專區 → 網站專區 → 申請網站標章</li>
-<li>填自評表 → 完成後狀態會顯示「待指派」→ 等審核（約 7 個工作日～3 週）</li>
+<li>填自評表（頁面位置可填首頁）→ 完成後狀態會顯示「待指派」→ 等審核</li>
+<li>依現行規定不必重複上傳 Freego 報告；排除設定要在備註中說明</li>
 </ol>
 <div class="checks"><b>送出前逐項核對：</b><ul>
 <li><label><input type="checkbox" data-id="apply-c80"> 網址是 <code>https://www.smes.tyc.edu.tw</code>——要有 s、<b>結尾不可有 index.php</b>、後面不加斜線</label></li>
@@ -410,10 +420,11 @@ footer a { color:var(--accent); font-weight:700; }
 <li><label><input type="checkbox" data-id="apply-c29"> 用<b>機關代碼</b>送審，不可用私人機構（會直接退回）</label></li>
 <li><label><input type="checkbox" data-id="apply-c30"> 標章等級選 <b>AA（中間那個）</b>，很多人在這步選錯</label></li>
 <li><label><input type="checkbox" data-id="apply-c27"> 「<b>網站導覽</b>」四個字一字未改（改了直接退）</label></li>
-<li><label><input type="checkbox" data-id="apply-c33"> 自評表：問「是否符合」一律填有；不知道填什麼的欄位填「首頁」或網址</label></li>
+<li><label><input type="checkbox" data-id="apply-c37"> 自評表依實際頁面狀況填寫；頁面位置可填「首頁」或對應網址，不要捏造檢查結果</label></li>
+<li><label><input type="checkbox" data-id="apply-c18"> 排除資料夾／檢測條件要在申請備註說明</label></li>
 <li><label><input type="checkbox" data-id="apply-c19"> <b>不要提供後台帳密</b>給審查員</label></li>
 </ul></div>
-<p class="note">💡 收到「限期改善」是好消息，代表快過了，5 天內改完點「回覆人工檢測報告」。收到「退件」才要等 7 天。</p>
+<p class="note">💡 審核結果以平台通知為準；若退回或限期改善，依通知期限修正並回覆。流程說明請見數發部官方申請頁。</p>
 </section></div><h2 class="phase" style="--c:#4c1d95"><span class="pn">送審後</span><span class="cnt">1 個步驟</span></h2><div class="grid"><section class="card" id="after" style="--sc:#522da9">
 <h3><label class="chk"><input type="checkbox" data-id="after"> <span class="num">1</span> <span class="t">取得標章後 + 慢慢補內容</span></label></h3>
 <p class="why">研習與中心都強調「做越多越容易被挑毛病，趁資料不多時送審」。這些留到拿到標章後再做。</p>
@@ -535,7 +546,7 @@ calc();
 <script>
 (function () {
   if (!('serviceWorker' in navigator)) return;
-  var APP_VERSION = '2026.08.05-2';
+  var APP_VERSION = '2026.08.08-2';
   var SW_REG = null, UPDATING = false;
 
   function applyUpdate() {
