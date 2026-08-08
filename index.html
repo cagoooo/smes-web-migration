@@ -18,8 +18,8 @@
 <meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
 <meta property="og:title" content="石門國小校網遷移操作台">
 <meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-2">
-<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-2">
+<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-3">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="石門國小校網遷移操作台">
 <meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-2">
+<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.08-3">
 
 <style>
 :root {
@@ -252,7 +252,7 @@ footer a { color:var(--accent); font-weight:700; }
     <button id="theme" type="button" aria-live="polite">🌙 深色</button>
   </div>
   <p class="sub">桃園市龍潭區石門國民小學 · 舊站搬到共構新站 · 取得無障礙 AA 標章</p>
-  <p class="sub">正式站 www.smes.tyc.edu.tw ＿ 舊站備份 web.smes.tyc.edu.tw ＿ 臨時站 schoolweb2.tyc.edu.tw/~smes_www/</p>
+  <p class="sub">正式站 www.smes.tyc.edu.tw ＿ 規劃舊站備份 web.smes.tyc.edu.tw ＿ 臨時站 schoolweb2.tyc.edu.tw/~smes_www/</p>
   <div class="dl">距離 115/12/18 取得標章死線：132 天</div>
   <div class="bar"><i id="prog"></i></div>
   <p class="barlab" id="proglab">進度 0 / 12</p>
@@ -262,7 +262,7 @@ footer a { color:var(--accent); font-weight:700; }
   <b>2026/08/08 進度更新：</b>臨時站 Freego AA 軟體檢測已完成，石門新站核心 184 頁全部 <code>YES</code>、<code>AA=0</code>、HTTP 200。
   <ul style="margin:.55rem 0 0 1.2rem">
     <li>下週通知中心切換正式網址：<code>www.smes.tyc.edu.tw</code></li>
-    <li>舊網站保留為：<code>web.smes.tyc.edu.tw</code></li>
+    <li>切換後預定保留舊網站：<code>web.smes.tyc.edu.tw</code>（尚待中心設定）</li>
     <li>正式網址切換後，仍須重新跑一次 Freego 全網站 AA，才進入標章申請</li>
     <li>本機色彩警示不再作為強制改色依據；以 Freego 與人工審核報告為準</li>
   </ul>
@@ -546,7 +546,7 @@ calc();
 <script>
 (function () {
   if (!('serviceWorker' in navigator)) return;
-  var APP_VERSION = '2026.08.08-2';
+  var APP_VERSION = '2026.08.08-3';
   var SW_REG = null, UPDATING = false;
 
   function applyUpdate() {

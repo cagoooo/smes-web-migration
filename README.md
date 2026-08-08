@@ -27,7 +27,7 @@
 ## 2026/08/08 進度
 
 - 臨時站 `https://schoolweb2.tyc.edu.tw/~smes_www/` 已完成 Freego 全網站 AA 軟體檢測：184 頁全部 HTTP 200、`YES`、`AA=0`。
-- 下週通知中心切換正式網址 `https://www.smes.tyc.edu.tw`；舊網站保留為 `https://web.smes.tyc.edu.tw`。
+- 下週通知中心切換正式網址 `https://www.smes.tyc.edu.tw`；切換後預定將舊網站保留為 `https://web.smes.tyc.edu.tw`（目前尚待中心設定）。
 - 正式網址切換後，仍要以正式網址重新執行 Freego 全網站 AA，才進入標章申請。
 - 依[數位發展部 Freego 現行規定](https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70)，Freego 通過後申請時不必上傳報告；若有排除設定，於申請備註說明。
 - 公開版不含 `members/` 教職員個資；9 個舊自製小站的去留仍待確認。
