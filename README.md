@@ -29,8 +29,9 @@
 - 正式網址 `https://www.smes.tyc.edu.tw/` 已上線，後續內容、Freego、AA 與送審準備都以它為準。
 - `https://schoolweb2.tyc.edu.tw/~smes_www/` 是準備站；目前兩站外觀相近，但頁面清單已不同，不視為即時同步，也不把準備站結果當成正式證明。
 - `https://web.smes.tyc.edu.tw/` 是保留的舊站網址，只處理 Let’s Encrypt 憑證，不跑 AA。正式憑證申請目前被 DNS 驗證 timeout 擋住，需中心協助。
-- 正式 `www` 的 Freego 已完成一次全網站 AA 掃描：248 頁、0 頁逾時，但尚未通過；241 頁都是 `HM1240401C` 空白連結問題。
-- 目前要先在「石門網路教學資源」區塊刪除「石門鳥類網」後面的空白 `<a>`，再重跑正式 `www` Freego；通過並核對後才進入無障礙標章申請。
+- 正式 `www` 的 Freego 已完成修正後全網站 AA 掃描：248 頁、0 頁逾時，`ME1320200C` 清單為「無」，自動檢測部分已通過 AA。
+- 前一輪 `HM1240401C` 空白連結已從「石門網路教學資源」區塊移除；Freego 報告仍要求人工檢測，人工審查與正式標章申請尚未完成。
+- 本次只核對並讀取本機 Freego 報告，沒有按「上傳檢測報告」或送出正式標章申請。
 - 依[數位發展部 Freego 現行規定](https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70)，Freego 通過後申請時不必上傳報告；若有排除設定，於申請備註說明。
 - 公開版不含 `members/` 教職員個資；9 個舊自製小站的去留仍待確認。
 - 平台[無障礙校網建置總目錄](https://schoolweb.tyc.edu.tw/modules/tad_book3/index.php?op=list_docs&tbsn=1)目前仍在撰寫；切換後的處室 JSON 步驟依[2-2 處室設定說明](https://schoolweb.tyc.edu.tw/modules/tad_book3/page.php?tbdsn=4&tbsn=1)整理。
