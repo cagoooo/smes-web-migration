@@ -24,11 +24,12 @@
 - **一改就退**：「網站導覽」四個字一字都不能動；「跳至主內容區」不能拿掉
 - **對比度**：本機工具只作提示；目前送審判定以 Freego 與人工審核為準，只有報告明確指出問題時才修正
 
-## 2026/08/08 進度
+## 2026/08/14 進度
 
-- 臨時站 `https://schoolweb2.tyc.edu.tw/~smes_www/` 已完成 Freego 全網站 AA 軟體檢測：184 頁全部 HTTP 200、`YES`、`AA=0`。
-- 下週通知中心切換正式網址 `https://www.smes.tyc.edu.tw`；切換後預定將舊網站保留為 `https://web.smes.tyc.edu.tw`（目前尚待中心設定）。
-- 正式網址切換後，仍要以正式網址重新執行 Freego 全網站 AA，才進入標章申請。
+- 正式網址 `https://www.smes.tyc.edu.tw/` 已上線，後續內容、Freego、AA 與送審準備都以它為準。
+- `https://schoolweb2.tyc.edu.tw/~smes_www/` 是準備站；目前兩站外觀相近，但頁面清單已不同，不視為即時同步，也不把準備站結果當成正式證明。
+- `https://web.smes.tyc.edu.tw/` 是保留的舊站網址，只處理 Let’s Encrypt 憑證，不跑 AA。正式憑證申請目前被 DNS 驗證 timeout 擋住，需中心協助。
+- 正式 `www` 的 Freego 全網站結果完成並核對後，才進入無障礙標章申請。
 - 依[數位發展部 Freego 現行規定](https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70)，Freego 通過後申請時不必上傳報告；若有排除設定，於申請備註說明。
 - 公開版不含 `members/` 教職員個資；9 個舊自製小站的去留仍待確認。
 - 平台[無障礙校網建置總目錄](https://schoolweb.tyc.edu.tw/modules/tad_book3/index.php?op=list_docs&tbsn=1)目前仍在撰寫；切換後的處室 JSON 步驟依[2-2 處室設定說明](https://schoolweb.tyc.edu.tw/modules/tad_book3/page.php?tbdsn=4&tbsn=1)整理。
