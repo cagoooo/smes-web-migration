@@ -18,8 +18,8 @@
 <meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
 <meta property="og:title" content="石門國小校網遷移操作台">
 <meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-1">
-<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-1">
+<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-2">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="石門國小校網遷移操作台">
 <meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-1">
+<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-2">
 
 <style>
 :root {
@@ -275,14 +275,14 @@ footer a { color:var(--accent); font-weight:700; }
 </div>
 
 <h2 class="phase" style="--c:#0f766e"><span class="pn">送審前</span><span class="cnt">8 個步驟</span></h2><div class="grid"><section class="card" id="color" style="--sc:#228155">
-<h3><label class="chk"><input type="checkbox" data-id="color"> <span class="num">1</span> <span class="t">Freego 通過，暫不強制改處室顏色</span></label></h3>
-<p class="why">本機對比度腳本曾列出色彩警示；2026-08-08 臨時網址的 184 頁 Freego 結果只是歷史快照，不能直接代表正式站。目前以正式 www 的 Freego 與人工審核結果為準，不把本機警示直接當成送審失敗。</p>
+<h3><label class="chk"><input type="checkbox" data-id="color"> <span class="num">1</span> <span class="t">色彩警示暫不強制修改</span></label></h3>
+<p class="why">正式 www 的 Freego 已完成一次 248 頁 AA 掃描，但目前卡在共用空白連結的 A 級問題，報告尚未指出色彩問題；因此本機對比度警示仍不直接當成送審失敗。</p>
 <ol class='steps'>
 <li>目前不修改處室顏色，也不把本機色彩警示直接視為 Freego 失敗</li>
-<li>只對正式網址 www.smes.tyc.edu.tw 執行 Freego 全網站 AA</li>
+<li>先修正正式站共用的空白連結，再對 www.smes.tyc.edu.tw 重跑 Freego 全網站 AA</li>
 <li>只有 Freego 或人工審核報告明確指出色彩問題時才修正</li>
 </ol>
-<p class="note">💡 色彩檢查工具保留作為找線索的小工具；送審判定以正式網址的 Freego 與人工審核為準。</p>
+<p class="note">💡 2026-08-14 正式站 Freego 報告是 248 頁、0 頁逾時、241 頁同一個 HM1240401C；目前沒有色彩違規證據。</p>
 </section><section class="card" id="upload" style="--sc:#228163">
 <h3><label class="chk"><input type="checkbox" data-id="upload"> <span class="num">2</span> <span class="t">上傳 5 個檔案（先做，下一步會用到網址）</span></label><span class="mins">約 10 分</span></h3>
 <p class="why">這些檔案原本掛在舊站，或檔名不合規（含括號）。已經全部下載並改好中文檔名，而且驗證過都是「文字可選取」的 PDF/ODT，符合無障礙規範。</p>
@@ -309,6 +309,7 @@ footer a { color:var(--accent); font-weight:700; }
 <li>在編輯器左上角點「<b>原始碼</b>」切換到原始碼模式</li>
 <li><b>全選原本的內容刪掉</b>，貼上下面複製的內容</li>
 <li>再點一次「原始碼」切回來確認畫面正常 → <b>儲存</b></li>
+<li>正式站目前另需在「石門網路教學資源」區塊刪除鳥類網後面的空白 <code>&lt;a&gt;</code>，保留有文字的「石門鳥類網」連結</li>
 <li>⚠️ 貼上後搜尋看看有沒有 <code>【請換成新站上傳後的網址】</code>，有的話換成上一步上傳的檔案網址</li>
 </ol>
 <div class="copyrow"><span>區塊：今日午餐資訊</span><button class="btn" data-store="blocks" data-key="今日午餐資訊">複製</button></div>
@@ -316,7 +317,7 @@ footer a { color:var(--accent); font-weight:700; }
 <div class="copyrow"><span>區塊：數位學習專區</span><button class="btn" data-store="blocks" data-key="數位學習專區">複製</button></div>
 <div class="copyrow"><span>區塊：石門網路教學資源</span><button class="btn" data-store="blocks" data-key="石門網路教學資源">複製</button></div>
 <div class="copyrow"><span>區塊：重要宣導連結</span><button class="btn" data-store="blocks" data-key="重要宣導連結">複製</button></div>
-<p class="note">💡 修正後全站 title 只剩三種寫法：「PDF文件，另開新視窗」「ODT文件，另開新視窗」「另開新視窗」。</p>
+<p class="note">💡 修正後全站 title 只剩三種寫法：「PDF文件，另開新視窗」「ODT文件，另開新視窗」「另開新視窗」；空白連結修好後再重跑 Freego。</p>
 </section><section class="card" id="textcolor" style="--sc:#22817f">
 <h3><label class="chk"><input type="checkbox" data-id="textcolor"> <span class="num">4</span> <span class="t">本機文字色彩警示（不列為必要待辦）</span></label></h3>
 <p class="why">本機腳本曾標出校史沿革、石門粉絲團與歷任校長的色彩警示；但臨時站的歷史 Freego 結果不能取代正式 www 的檢測，目前不把這些警示直接當成必須改色的送審門檻。</p>
@@ -393,6 +394,8 @@ footer a { color:var(--accent); font-weight:700; }
 <h3><label class="chk"><input type="checkbox" data-id="freego"> <span class="num">2</span> <span class="t">Freego 檢測</span></label><span class="mins">約 60 分</span></h3>
 <p class="why">正式送審必要的軟體檢測；臨時網址的歷史結果不能取代正式 www，必須以正式網址的完整檢測為準。</p>
 <ol class='steps'>
+<li>2026-08-14 已完成正式 www 的全網站 AA 掃描：248 頁、0 頁逾時，但尚未通過</li>
+<li>目前 241 頁都是同一個 A 級 <code>HM1240401C</code>：石門鳥類網後面多出空白連結；先回後台刪除再重測</li>
 <li>安裝 <b>Eclipse Temurin JRE 21</b>（版本必須 17～21，太高太低都不行）</li>
 <li>安裝時「自訂安裝」畫面把 <code>JavaSoft (Oracle) registry keys</code> 改成「<b>安裝</b>」</li>
 <li>下載 Freego，解壓到 <code>C:\MODA\Freego\</code></li>
@@ -404,7 +407,7 @@ footer a { color:var(--accent); font-weight:700; }
 <li>保留 Freego 的 <code>.cat</code> 檢測檔作為專案紀錄；依數發部現行規定，申請時不必上傳報告</li>
 <li>查看 <a href="https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70" target="_blank" rel="noopener noreferrer">數發部 Freego 現行說明</a></li>
 </ol>
-<p class="note">💡 後台 school 模組的「檢測與標章申請」「人工檢測解法」仍建議送審前看過。</p>
+<p class="note">💡 正式站 Freego 尚未通過；不要按「上傳檢測報告」，先修正共用空白連結並重新檢測。</p>
 </section><section class="card" id="apply" style="--sc:#896e24">
 <h3><label class="chk"><input type="checkbox" data-id="apply"> <span class="num">3</span> <span class="t">線上送審</span></label><span class="mins">約 60 分</span></h3>
 <p class="why">Freego 通過只是申請前提；還要以公務身分完成自我評量，並等待數發部軟體與人工審核。</p>
@@ -546,7 +549,7 @@ calc();
 <script>
 (function () {
   if (!('serviceWorker' in navigator)) return;
-  var APP_VERSION = '2026.08.14-1';
+  var APP_VERSION = '2026.08.14-2';
   var SW_REG = null, UPDATING = false;
 
   function applyUpdate() {
