@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="桃園市龍潭區石門國民小學校網遷移、FreeGo AA 檢測、正式送審與舊站 HTTPS 憑證的公開實戰故事集。">
+<title>石門國小校網遷移｜完整實戰故事集</title>
+<style>
+:root {
+  --ink: #24303a;
+  --muted: #5e6d78;
+  --paper: #fffdf8;
+  --soft: #f2eee5;
+  --line: #ddd5c7;
+  --teal: #176b68;
+  --teal-soft: #e2f1ee;
+  --amber: #a86216;
+  --amber-soft: #fff1d9;
+  --purple: #5c3d84;
+  --purple-soft: #eee7f7;
+  --shadow: 0 16px 45px rgba(44, 48, 43, .09);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #e9e5dc;
+  font: 1.06rem/1.85 system-ui, -apple-system, "Segoe UI", "Noto Sans TC",
+        "Microsoft JhengHei", sans-serif;
+}
+a { color: #075f89; text-underline-offset: .18em; }
+a:focus-visible, button:focus-visible { outline: 3px solid #e05b2d; outline-offset: 3px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 1rem; }
+.hero {
+  padding: clamp(2rem, 6vw, 5rem);
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(10, 65, 67, .94), rgba(34, 55, 72, .96)),
+    radial-gradient(circle at 80% 10%, #edb96c, transparent 36%);
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow);
+}
+.kicker {
+  margin: 0 0 .8rem;
+  color: #c9f0e7;
+  font-size: .92rem;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+h1, h2, h3 { line-height: 1.3; }
+h1 { max-width: 850px; margin: 0; font-size: clamp(2rem, 5.5vw, 4.5rem); letter-spacing: -.03em; }
+h1 em { color: #ffd991; font-style: normal; }
+.lead { max-width: 780px; margin: 1.5rem 0 0; color: #f6fbf8; font-size: 1.18rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.7rem; }
+.meta span {
+  padding: .35rem .75rem;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 999px;
+  color: #f8fffd;
+  font-size: .9rem;
+}
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+}
+.toc a {
+  padding: .35rem .7rem;
+  color: var(--teal);
+  background: var(--teal-soft);
+  border-radius: .5rem;
+  font-size: .92rem;
+  font-weight: 700;
+}
+main { display: grid; gap: 1rem; }
+.chapter, .endnote {
+  padding: clamp(1.3rem, 3vw, 2.4rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(44, 48, 43, .04);
+}
+.chapter > :first-child { margin-top: 0; }
+.chapter > :last-child { margin-bottom: 0; }
+h2 { margin-top: 0; color: var(--teal); font-size: clamp(1.55rem, 3vw, 2.3rem); }
+h3 { margin-bottom: .3rem; color: #374b55; font-size: 1.25rem; }
+p { margin: .8rem 0; }
+ul, ol { padding-left: 1.5rem; }
+li + li { margin-top: .35rem; }
+.chapter strong { color: #173e4e; }
+.chapter code, .command {
+  padding: .08em .32em;
+  color: #743f10;
+  background: #f7ead4;
+  border-radius: .28rem;
+  font: .92em ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.callout {
+  margin: 1.2rem 0;
+  padding: 1rem 1.15rem;
+  border-left: 5px solid var(--amber);
+  background: var(--amber-soft);
+}
+.callout.teal { border-left-color: var(--teal); background: var(--teal-soft); }
+.callout.purple { border-left-color: var(--purple); background: var(--purple-soft); }
+.timeline { display: grid; gap: .85rem; margin: 1.2rem 0 0; }
+.timeline article {
+  position: relative;
+  padding: 1rem 1.1rem 1rem 1.35rem;
+  border-left: 4px solid var(--teal);
+  background: #f8fbf8;
+}
+.timeline time { color: var(--amber); font-weight: 800; }
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: .8rem;
+  margin: 1.2rem 0;
+}
+.fact {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  background: #fff;
+}
+.fact b { display: block; color: var(--teal); font-size: 1.35rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #fff; }
+th, td { padding: .75rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { color: #fff; background: var(--teal); }
+tr:nth-child(even) td { background: #faf8f3; }
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.split > div { padding: 1rem; border: 1px solid var(--line); border-radius: .7rem; }
+.split h3 { margin-top: 0; }
+.footer {
+  padding: 1.5rem .5rem 2rem;
+  color: var(--muted);
+  text-align: center;
+  font-size: .92rem;
+}
+.footer a { margin: 0 .3rem; }
+@media (max-width: 620px) {
+  body { font-size: 1rem; }
+  .wrap { padding: .6rem; }
+  .hero { border-radius: 1rem; }
+  th, td { padding: .55rem; }
+}
+@media print {
+  body { background: #fff; }
+  .hero, .chapter, .endnote { box-shadow: none; }
+  .toc { display: none; }
+  a { color: inherit; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="kicker">公開紀錄｜最後更新：2026 年 8 月 14 日</p>
+    <h1>把一個校網搬過去，<br><em>再把「應該可以」變成「我驗證過」</em></h1>
+    <p class="lead">
+      這不是一篇只放成功截圖的成果報告，而是桃園市龍潭區石門國民小學
+      從自建 XOOPS 舊站搬到教育局共構平台，沿著 FreeGo、正式送審、
+      DNS、nginx 與 Let’s Encrypt 一路走過來的公開實戰故事。
+    </p>
+    <div class="meta">
+      <span>石門國小 Shih Men</span>
+      <span>正式站 AA 範圍：www</span>
+      <span>舊站 HTTPS：web</span>
+      <span>目標：2026-12-18 前取得 AA 標章</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="故事目錄">
+    <a href="#why">為什麼開始</a>
+    <a href="#handoff">接手與查證</a>
+    <a href="#domains">三個網址</a>
+    <a href="#freego">FreeGo 轉折</a>
+    <a href="#application">正式送審</a>
+    <a href="#web">web 憑證戰線</a>
+    <a href="#lessons">給其他學校</a>
+    <a href="#now">現在進度</a>
+  </nav>
+
+  <main>
+    <section class="chapter" id="why">
+      <h2>一、這件事一開始，並不是「換個網址」這麼簡單</h2>
+      <p>
+        石門國小原本有一套自建 XOOPS 舊校網，接著要搬到教育局的 XOOPS 共構平台，
+        同時還要準備申請無障礙標章 AA。表面上看起來像是把文章、照片、附件搬過去；
+        實際上卻同時牽涉內容盤點、網站結構、外部連結、處室資料、圖片替代文字、
+        FreeGo 自動檢測、人工審查、正式網址切換，以及舊站的 HTTPS 維持。
+      </p>
+      <p>
+        更現實的是，這是一個由一位資訊組長長期維護的校務專案，不是有專職工程團隊
+        可以把所有事情拆給不同人。於是第一個設計原則很快確立：
+        <strong>每一步都要能被下一個人重做、查證、交接，而不是只存在某個人的記憶裡。</strong>
+      </p>
+      <div class="facts">
+        <div class="fact"><b>12 步</b>操作台整理成送審前、送審、送審後</div>
+        <div class="fact"><b>248 頁</b>正式 www 的 FreeGo 全站重測</div>
+        <div class="fact"><b>0 頁</b>正式 FreeGo 掃描逾時</div>
+        <div class="fact"><b>3 個月</b>web 憑證有效期的第一個可驗證週期</div>
+      </div>
+      <div class="callout teal">
+        <strong>先說結論：</strong>截至這份故事集更新時，正式 www 已完成 FreeGo 自動檢測與
+        AA 自我評量送出，案件狀態是「待指派」；舊 web 已拿到 Let’s Encrypt 憑證。
+        AA 標章本身仍要等官方後續審查，不能把「自動檢測通過」寫成「標章已取得」。
+      </div>
+    </section>
+
+    <section class="chapter" id="handoff">
+      <h2>二、接手後最先學到的教訓：文件先於直覺，正式站先於漂亮截圖</h2>
+      <p>
+        前一個 agent 交接時留下了不少數字，其中最吸引人的，是「184 頁全過」。
+        但接手後沒有直接把這個數字當成事實，而是先依序閱讀專案規範、交接文件與補齊清單，
+        再重新跑檢查、查 Git 紀錄、看目前的網址。
+      </p>
+      <p>
+        查證後才發現，那個 184 頁結果來自準備用的 <code>schoolweb2</code>，
+        不是審查委員會真正會看到的正式 <code>www</code>。兩個站外觀看起來很像，
+        並不代表它們即時同步；更不能把準備站的通過結果直接移植成正式站證明。
+      </p>
+      <p>
+        這個差異看似只是網址多了 <code>2</code>，實際上卻是整個專案的證據邊界：
+        後來所有 FreeGo 與 AA 送審判斷，都改以正式 www 為準；準備站只保留為參考，
+        不再混用兩邊的頁數、報告與完成狀態。
+      </p>
+      <div class="timeline">
+        <article><time>第一步</time><br>讀規範、交接與執行清單，先知道哪些事情不能自作主張。</article>
+        <article><time>第二步</time><br>重新跑檢查，確認腳本曾經打錯網址的技術債，並把三支核心腳本改成正式 www／舊站 web。</article>
+        <article><time>第三步</time><br>把「測試站結果」「正式站實測」「官方案件狀態」分成三種證據，不再用一句「看起來一樣」代替驗證。</article>
+      </div>
+    </section>
+
+    <section class="chapter" id="domains">
+      <h2>三、三個網址，三種身分：先把角色講清楚，後面才不會互相污染</h2>
+      <table>
+        <thead><tr><th>網址</th><th>在專案中的角色</th><th>這次怎麼使用</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.smes.tyc.edu.tw/">www.smes.tyc.edu.tw</a></td>
+            <td>正式新校網</td>
+            <td>所有正式內容、FreeGo AA 掃描與官方標章申請都以此為準。</td>
+          </tr>
+          <tr>
+            <td><a href="https://schoolweb2.tyc.edu.tw/~smes_www/">schoolweb2.tyc.edu.tw/~smes_www</a></td>
+            <td>準備／共構平台網址</td>
+            <td>用來協助建置與比對；外觀相似不代表與正式站即時同步。</td>
+          </tr>
+          <tr>
+            <td><a href="https://web.smes.tyc.edu.tw/">web.smes.tyc.edu.tw</a></td>
+            <td>保留的舊校網</td>
+            <td>本次只處理 Let’s Encrypt HTTPS，不納入 AA 檢測範圍。</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        <strong>一個很容易犯的錯：</strong>把新站的 AA 工作和舊站的網址／憑證工作混成一件事。
+        這次刻意拆成兩條線：<strong>www 做 AA；web 做 HTTPS。</strong>
+        這個切法讓問題變小，也讓每一次驗證都知道自己在證明什麼。
+      </div>
+    </section>
+
+    <section class="chapter" id="freego">
+      <h2>四、FreeGo 的轉折：不是看到警示就全部改色，而是做「檢測 → 找問題 → 修正 → 重測」</h2>
+      <p>
+        專案中途，本機對比度工具曾列出多組警示。直覺反應很容易是把所有顏色全部重做；
+        但實際經驗告訴我們，本機工具比較適合當「找線索」工具，不是官方判定本身。
+        如果沒有先看實際渲染結果，就可能為了誤判大幅改動共用主題，反而製造新的問題。
+      </p>
+      <p>
+        真正的轉折來自 FreeGo 正式站重測。前一輪報告指出「石門網路教學資源」區塊
+        有一個沒有可讀文字的空白連結；同時首頁滑動圖片的替代文字也完成手動修正。
+        修正時沒有把整個區塊推倒重做，而是精準移除空白 <code>&lt;a&gt;</code>，
+        保留有文字的正常連結，再用正式 www 重新跑完整網站。
+      </p>
+      <div class="facts">
+        <div class="fact"><b>17:07:59–17:21:40</b>2026-08-14 正式站掃描時段</div>
+        <div class="fact"><b>248 頁</b>全網站掃描完成</div>
+        <div class="fact"><b>0 逾時</b>沒有頁面因逾時中斷</div>
+        <div class="fact"><b>無</b><code>ME1320200C</code> 清單</div>
+      </div>
+      <p>
+        這個結果代表正式站的 FreeGo <strong>自動檢測部分</strong>已通過；它不等於人工審查
+        已經完成，也不等於 AA 標章已經核發。把這個界線寫進交接文件，是為了避免未來
+        看到「AA 通過」四個字時，忘記它究竟指的是哪一層。
+      </p>
+    </section>
+
+    <section class="chapter" id="application">
+      <h2>五、從自動檢測走到正式送審：最重要的是填真實狀況，不是把表格填漂亮</h2>
+      <p>
+        FreeGo 完成後，專案進入官方無障礙平台的申請與自我評量。這裡沒有用猜的：
+        依照正式 www 的實際頁面逐項確認 PDF 是否能選取文字、鍵盤操作與跳至主內容、
+        圖片／輪播、表單標籤與驗證、響應式呈現等，再把頁面位置填成可被審查員重現的首頁或對應頁面。
+      </p>
+      <p>
+        申請表需要 FreeGo 上傳編號時，從本機既有檢測產物核對，不把編號寫進公開故事集。
+        送出自我評量後，平台案件顯示為<strong>「待指派」</strong>。這表示資料已送進官方流程，
+        下一階段是等待軟體與人工審查，不是繼續無限增加內容。
+      </p>
+      <div class="callout purple">
+        <strong>送審策略的反直覺之處：</strong>研習與中心反覆提醒，網站做得越滿，
+        人工審查時可被挑出的地方就越多。因此送審前不是「把所有想法都做完」，
+        而是先把核心結構、必要內容與可驗證的無障礙設計做穩。
+      </div>
+      <div class="split">
+        <div>
+          <h3>已完成並留下證據</h3>
+          <ul>
+            <li>正式 www FreeGo 全站掃描</li>
+            <li>空白連結與首頁替代文字修正</li>
+            <li>AA 自我評量送出</li>
+            <li>平台案件狀態「待指派」</li>
+          </ul>
+        </div>
+        <div>
+          <h3>仍然不能宣稱完成</h3>
+          <ul>
+            <li>尚未取得官方 AA 標章</li>
+            <li>尚未知道人工審查是否會要求改善</li>
+            <li>尚未把所有未決內容選項自行決定掉</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="web">
+      <h2>六、web 舊站的獨立戰線：三次 SERVFAIL，最後把 HTTPS 做到可驗證</h2>
+      <p>
+        舊站改保留為 <code>web.smes.tyc.edu.tw</code> 後，最初並沒有立刻成功拿到憑證。
+        Let’s Encrypt 曾連續遇到 DNS SERVFAIL；但從學校端用多個公開 DNS 查詢時，
+        解析結果又穩定一致。這段最容易誤判成「一定是我們設定錯了」，也最容易在短時間內
+        不斷重試，把 ACME 失敗次數用光。
+      </p>
+      <p>
+        做法是先停下來，把 DNS、CAA、DNSSEC、nginx server_name、現有憑證與公開解析分開確認。
+        這些檢查沒有把責任推給某一個猜測；它們只回答一個個小問題：
+        網域有沒有解析？憑證授權有沒有被 CAA 擋住？nginx 目前服務哪個主機名？
+        舊站的 HTTPS 是否真的由正確憑證回應？
+      </p>
+      <p>
+        後來正式簽發成功，並由 nginx 掛上
+        <code>/etc/letsencrypt/live/web.smes.tyc.edu.tw/</code> 的憑證與私鑰。
+        過程中曾有一次把備份暫放進 nginx 啟用目錄，造成重複 listen 的測試錯誤；
+        立即把備份移回專用備份位置，重新執行設定檢查與 reload，最後服務恢復到正確狀態。
+      </p>
+      <div class="facts">
+        <div class="fact"><b>TLS 1.3</b>公開握手成功</div>
+        <div class="fact"><b>YE1</b>Let’s Encrypt 簽發者</div>
+        <div class="fact"><b>2026-11-12</b>目前憑證到期日</div>
+        <div class="fact"><b>301 → 200</b>HTTP 轉 HTTPS 且 HTTPS 正常</div>
+      </div>
+      <div class="callout teal">
+        <strong>最後不是看瀏覽器「好像安全」：</strong>用公開請求確認 HTTP 回應是 301，
+        HTTPS 回應是 200；再用 TLS handshake 讀取 subject、issuer、SAN、有效期限。
+        憑證驗證和網頁內容驗證，兩者都通過才算這條工作線完成。
+      </div>
+    </section>
+
+    <section class="chapter" id="lessons">
+      <h2>七、如果其他學校要照著做，我最推薦先記住這十件事</h2>
+      <ol>
+        <li><strong>先讀交接與規範，再碰網站。</strong>尤其是「不要動的地方」與「必須問本人」的決策。</li>
+        <li><strong>把準備站、正式站、舊站分開命名。</strong>外觀一樣不代表資料同步，報告也不能混用。</li>
+        <li><strong>所有數字都要附來源、網址、日期。</strong>「184 頁」如果沒有說明是哪個站、哪一天，就不能當證據。</li>
+        <li><strong>FreeGo 是自動檢測工具，不是人工標章核發器。</strong>自動通過、送出申請、取得標章是三個階段。</li>
+        <li><strong>本機警示先分類。</strong>先看實際 CSS 與渲染，再決定要不要改，不要看到顏色數字就全站換色。</li>
+        <li><strong>先修共用問題，再修個別內容。</strong>一個空白連結或版型問題可能在數百頁重複出現。</li>
+        <li><strong>舊站 HTTPS 與新站 AA 分成兩條工作線。</strong>一條完成不代表另一條完成，也不應互相拖延。</li>
+        <li><strong>憑證問題先看 DNS，再看 ACME。</strong>公開解析、CAA、權威 DNS、nginx 與 TLS 要各自驗證。</li>
+        <li><strong>每次修改都留下可重做的證據。</strong>報告、指令、Git commit、公開頁面與實測回應缺一不可。</li>
+        <li><strong>公開分享前做一次隱私掃描。</strong>教職員名單、Email、電話、帳密檔案永遠不應進公開 repo。</li>
+      </ol>
+      <div class="callout">
+        <strong>一個可複製的最小流程：</strong>
+        盤點 → 分清網址角色 → 修共用問題 → 以正式網址跑 FreeGo →
+        依實際頁面填自評 → 送出後等待指派 → 舊站另做 HTTPS →
+        用公開 HTTP/TLS 請求驗證 → 把結果寫進交接文件。
+      </div>
+    </section>
+
+    <section class="chapter" id="now">
+      <h2>八、故事還沒有結束：現在停在「待指派」，不是停在「不知道怎麼辦」</h2>
+      <p>
+        目前最重要的工作不是再製造更多變更，而是保留正式 www 的內容穩定性，
+        等待官方案件指派與審查通知。如果官方要求改善，就依通知內容逐項修正、重測、
+        回覆；如果沒有要求，就不要為了追求「看起來更完整」而自行擴大送審範圍。
+      </p>
+      <p>
+        舊站 web 已經有正常 HTTPS，但舊站 XOOPS 設定與資料庫裡的舊 www 內容網址，
+        尚未全面改成 web。這件事如果要做，必須另開內容網址切換工作，先完整備份，
+        再確認哪些外部連結、圖片、相簿與自製小站應該保留。憑證成功，不代表可以直接
+        對資料庫做全域取代。
+      </p>
+      <div class="callout teal">
+        <strong>這份故事集的真正主題：</strong>不是「AI 幫忙把網站做完」，而是把一個
+        真實校務專案中的不確定性拆開，讓每一步都有邊界、有證據、有回復方式，
+        也讓下一位資訊組長不必從零開始猜。
+      </div>
+    </section>
+
+    <section class="endnote">
+      <h2>公開紀錄的安全邊界</h2>
+      <p>
+        這份分享版只保留公開網址、流程、實測數字與技術判斷；刻意不列出正式案件識別編號、
+        FreeGo 上傳編號、伺服器帳密、內部憑證檔位置、教職員姓名、Email 與電話。
+        需要個資的操作步驟，只保留在石門國小本機專案，不進公開 GitHub Pages。
+      </p>
+      <p>
+        回到<a href="./">石門國小校網遷移操作台</a>，
+        或閱讀<a href="https://github.com/cagoooo/smes-web-migration">GitHub 公開 repository</a>。
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    桃園市龍潭區石門國民小學｜石門國小 Shih Men｜公開實戰紀錄
+  </footer>
+</div>
+</body>
+</html>

@@ -5,6 +5,12 @@
 
 👉 **線上開啟：** https://cagoooo.github.io/smes-web-migration/
 
+📖 **完整實戰故事集：** [把「應該可以」變成「我驗證過」](./migration-story.html)
+
+這份故事集記錄從網址分工、交接查證、FreeGo 248 頁正式站重測、AA 自我評量送出，
+到 `web.smes.tyc.edu.tw` 三次 DNS 驗證失敗後取得 Let’s Encrypt 憑證的完整過程，
+也標出哪些結果仍在等待官方審查，方便其他學校資訊組長參照。
+
 ## 這是什麼
 
 依據以下三份資料整理出來的逐步操作清單：
