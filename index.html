@@ -18,8 +18,8 @@
 <meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
 <meta property="og:title" content="石門國小校網遷移操作台">
 <meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-3">
-<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-3">
+<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-4">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-4">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="石門國小校網遷移操作台">
 <meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-3">
+<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-4">
 
 <style>
 :root {
@@ -262,8 +262,8 @@ footer a { color:var(--accent); font-weight:700; }
   <b>2026/08/14 進度更新：</b>正式站 <code>www.smes.tyc.edu.tw</code> 已上線，內容以它為準；準備站與正式站外觀相近，但頁面清單已不同，不視為即時同步。
   <ul style="margin:.55rem 0 0 1.2rem">
     <li>Freego、AA 與送審準備只針對正式 <code>www</code>；準備站的歷史結果不作正式證明</li>
-    <li>舊站 <code>web</code> 不跑 AA，只處理 Let’s Encrypt 憑證；目前正式申請仍被 DNS 驗證 timeout 擋住</li>
-    <li>正式 <code>www</code> 的 Freego 自動檢測已完成並核對；接下來先處理人工檢測與自評，才進入標章申請</li>
+    <li>舊站 <code>web</code> 不跑 AA，只處理 Let’s Encrypt 憑證；憑證已完成，HTTP 會轉 HTTPS</li>
+    <li>正式 <code>www</code> 的 Freego 自動檢測與 AA 自我評量已完成；案件目前「待指派」，等待官方審查</li>
     <li>本機色彩警示不再作為強制改色依據；以 Freego 與人工審核報告為準</li>
   </ul>
 </div>
@@ -379,12 +379,12 @@ footer a { color:var(--accent); font-weight:700; }
 <div class="copyrow"><span>可選：比對新舊站內容：<code>python scripts/compare_sites.py</code></span><button class="btn" data-val="python scripts/compare_sites.py">複製</button></div>
 </section></div><h2 class="phase" style="--c:#b45309"><span class="pn">送審</span><span class="cnt">3 個步驟</span></h2><div class="grid"><section class="card" id="switch" style="--sc:#a9672d">
 <h3><label class="chk"><input type="checkbox" data-id="switch"> <span class="num">1</span> <span class="t">確認正式網址與舊站網址分工</span></label></h3>
-<p class="why">送審網址必須是 https://www.smes.tyc.edu.tw；目前 www 已上線。schoolweb2 是準備站，不假設與正式站即時同步；web 只保留舊站並處理憑證。</p>
+<p class="why">送審網址必須是 https://www.smes.tyc.edu.tw；目前 www 已上線。schoolweb2 是準備站，不假設與正式站即時同步；web 只保留舊站並處理已完成的 HTTPS 憑證。</p>
 <ol class='steps'>
 <li>確認中心已將 <code>www.smes.tyc.edu.tw</code> 設為正式新站（目前已完成）</li>
 <li>確認學校內容編輯與 Freego 檢測都只針對正式 www，不以 schoolweb2 當完成證據</li>
 <li>舊站保留並以 <code>web.smes.tyc.edu.tw</code> 存取；舊站只處理憑證，不跑 AA</li>
-<li>若憑證申請持續遇到 DNS timeout，請中心協助處理，不要連續重試</li>
+<li>web.smes.tyc.edu.tw 的 Let's Encrypt 憑證已完成，HTTP 會 301 轉 HTTPS、HTTPS 回應 200；舊站不跑 AA</li>
 <li>切換完成後登入新站後台 → 初始化設定 → 點擊「<b>處室設定</b>」標題一次，重新產生行政處室區塊與導覽列所使用的 JSON，讓處室連結改成正式網址</li>
 <li>⚠️ 再把「石門網路教學資源」區塊裡指向 <code>www.smes.tyc.edu.tw/smes_html/</code> 的 6 條連結改成 <code>web.</code></li>
 <li>切換完成後先測試首頁、選單、附件與重要頁面，再進行正式網址 Freego 檢測</li>
@@ -408,14 +408,14 @@ footer a { color:var(--accent); font-weight:700; }
 <li>保留 Freego 的 <code>.cat</code> 檢測檔作為專案紀錄；依數發部現行規定，申請時不必上傳報告</li>
 <li>查看 <a href="https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70" target="_blank" rel="noopener noreferrer">數發部 Freego 現行說明</a></li>
 </ol>
-<p class="note">💡 正式站 Freego 自動檢測已通過；不要按「上傳檢測報告」，待人工檢測與使用者確認後再進入正式標章流程。</p>
+<p class="note">💡 正式站 Freego 自動檢測已通過；AA 自我評量已送出，案件目前顯示「待指派」，接下來等待官方軟體與人工審查。</p>
 </section><section class="card" id="apply" style="--sc:#896e24">
 <h3><label class="chk"><input type="checkbox" data-id="apply"> <span class="num">3</span> <span class="t">線上送審</span></label><span class="mins">約 60 分</span></h3>
-<p class="why">Freego 通過只是申請前提；還要以公務身分完成自我評量，並等待數發部軟體與人工審核。</p>
+<p class="why">Freego 通過只是申請前提；正式站 AA 自我評量已完成送出，目前案件狀態為「待指派」，等待數發部軟體與人工審核。</p>
 <ol class='steps'>
 <li>用 <b>E 政府公務帳號</b>登入無障礙網路空間服務網（需自然人憑證 + <b>機關代碼</b>）</li>
 <li>會員專區 → 網站專區 → 申請網站標章</li>
-<li>填自評表（頁面位置可填首頁）→ 完成後狀態會顯示「待指派」→ 等審核</li>
+<li>自評表已完成送出；目前案件狀態顯示「待指派」，等待官方審核通知</li>
 <li>依現行規定不必重複上傳 Freego 報告；排除設定要在備註中說明</li>
 </ol>
 <div class="checks"><b>送出前逐項核對：</b><ul>
@@ -550,7 +550,7 @@ calc();
 <script>
 (function () {
   if (!('serviceWorker' in navigator)) return;
-  var APP_VERSION = '2026.08.14-3';
+  var APP_VERSION = '2026.08.14-4';
   var SW_REG = null, UPDATING = false;
 
   function applyUpdate() {
