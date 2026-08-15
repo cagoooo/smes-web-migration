@@ -18,8 +18,8 @@
 <meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
 <meta property="og:title" content="石門國小校網遷移操作台">
 <meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-5">
-<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-5">
+<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.15-1">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.15-1">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="石門國小校網遷移操作台">
 <meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.14-5">
+<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.15-1">
 
 <style>
 :root {
@@ -67,6 +67,7 @@ h1 { font-size:clamp(1.65rem, 1rem + 2.6vw, 3rem); margin:0 0 .5rem;
   background:linear-gradient(100deg, var(--accent), #6f8a4a 55%, #b08d3f);
   -webkit-background-clip:text; background-clip:text; color:transparent; }
 .sub { color:var(--muted); font-size:clamp(.95rem,.9rem + .2vw,1.08rem); margin:.15rem 0; }
+.sub a { color:var(--accent); font-weight:800; text-underline-offset:.18em; }
 .dl { display:inline-flex; align-items:center; gap:.5rem; margin-top:1rem;
   padding:.65rem 1.2rem; border-radius:99px; font-size:clamp(1rem,.95rem + .25vw,1.2rem);
   background:linear-gradient(135deg,#4c5a38,#7a8f52); color:#fff; font-weight:700;
@@ -82,6 +83,53 @@ h1 { font-size:clamp(1.65rem, 1rem + 2.6vw, 3rem); margin:0 0 .5rem;
   padding:.55rem 1.1rem; font:inherit; font-size:.95rem; font-weight:700;
   min-height:2.75rem; white-space:nowrap; }
 #theme:hover { border-color:var(--accent); }
+
+/* 情境入口與查錯導覽：第一次來的人先選狀況，不必從 12 張卡片盲找 */
+.quick-nav { display:flex; flex-wrap:wrap; gap:.55rem; margin:1rem 0 1.2rem; }
+.quick-nav a { color:var(--accent); background:var(--card); border:1px solid var(--line);
+  border-radius:99px; padding:.42rem .85rem; font-size:.94rem; font-weight:800;
+  text-decoration:none; box-shadow:0 2px 8px -6px rgba(20,30,10,.35); }
+.quick-nav a:hover { border-color:var(--accent); background:var(--code); }
+.start-here, .status-board, .help-hub { background:var(--card); border:1px solid var(--line);
+  border-radius:.95rem; padding:clamp(1rem,2.4vw,1.55rem); margin:1rem 0; }
+.start-here h2, .status-board h2, .help-hub h2 { margin:.05rem 0 .35rem; font-size:clamp(1.25rem,1.05rem + .9vw,1.8rem); }
+.section-lead { margin-bottom:1rem; }
+.section-lead p { color:var(--muted); margin:.25rem 0 0; }
+.start-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.75rem; }
+.start-card { display:flex; flex-direction:column; gap:.35rem; min-height:8.5rem; padding:1rem;
+  color:var(--fg); background:color-mix(in srgb,var(--accent) 7%,var(--card));
+  border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:.7rem;
+  text-decoration:none; transition:transform .16s, box-shadow .16s; }
+.start-card:hover { transform:translateY(-2px); box-shadow:0 12px 24px -17px var(--accent); }
+.start-card strong { color:var(--accent); font-size:1.05rem; }
+.start-card span { color:var(--muted); font-size:.94rem; line-height:1.55; }
+.start-card b { margin-top:auto; color:var(--accent); font-size:.9rem; }
+.status-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:.7rem; margin-top:1rem; }
+.status-item { padding:.8rem .9rem; border-radius:.65rem; background:var(--code); border-left:4px solid var(--accent); }
+.status-item b { display:block; color:var(--accent); margin-bottom:.15rem; }
+.status-item span { color:var(--muted); font-size:.93rem; }
+.searchbar { display:grid; grid-template-columns:1fr auto; gap:.55rem; align-items:center;
+  margin:1rem 0 1.4rem; padding:.85rem 1rem; background:var(--code);
+  border:1px solid var(--line); border-radius:.8rem; }
+.searchbar label { grid-column:1 / -1; color:var(--accent); font-weight:800; }
+#quick-find { width:100%; min-height:2.8rem; padding:.55rem .75rem; border:2px solid var(--line);
+  border-radius:.55rem; color:var(--fg); background:var(--card); font:inherit; }
+#quick-find:focus { border-color:var(--accent); outline:3px solid color-mix(in srgb,var(--accent) 25%,transparent); }
+.search-clear { min-height:2.8rem; padding:.55rem .9rem; border:1px solid var(--line);
+  border-radius:.55rem; background:var(--card); color:var(--fg); cursor:pointer; font:inherit; font-weight:700; }
+.search-clear:hover { border-color:var(--accent); color:var(--accent); }
+.search-help { grid-column:1 / -1; color:var(--muted); margin:0; font-size:.9rem; }
+#search-status { grid-column:1 / -1; min-height:1.4em; color:var(--muted); margin:0; font-size:.9rem; }
+.help-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:.8rem; }
+.help-card { padding:1rem; border:1px solid var(--line); border-left:5px solid #b45309;
+  border-radius:.7rem; background:color-mix(in srgb,#b45309 6%,var(--card)); }
+.help-card h3 { margin:.05rem 0 .45rem; font-size:1.05rem; }
+.help-card p { color:var(--muted); font-size:.94rem; margin:.4rem 0; line-height:1.65; }
+.help-card a { color:var(--accent); font-weight:800; }
+.ref-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.55rem; margin-top:1rem; }
+.ref-grid a { display:block; padding:.65rem .8rem; color:var(--accent); border:1px solid var(--line);
+  border-radius:.55rem; background:var(--card); font-weight:700; }
+section[hidden], article[hidden] { display:none !important; }
 
 h2.phase { font-size:clamp(1.2rem,1rem + .9vw,1.75rem); margin:2.75rem 0 1.1rem;
   padding:.7rem 1.15rem; border-radius:.85rem; background:var(--c); color:#fff;
@@ -254,10 +302,76 @@ footer a { color:var(--accent); font-weight:700; }
   <p class="sub">桃園市龍潭區石門國民小學 · 舊站搬到共構新站 · 取得無障礙 AA 標章</p>
   <p class="sub">正式站 www.smes.tyc.edu.tw ＿ 舊站 web.smes.tyc.edu.tw（只處理憑證） ＿ 準備站 schoolweb2.tyc.edu.tw/~smes_www/（不假設同步）</p>
   <p class="sub">📖 <a href="migration-story.html">閱讀完整實戰故事集：把「應該可以」變成「我驗證過」</a></p>
-  <div class="dl">距離 115/12/18 取得標章死線：126 天</div>
+  <div class="dl">距離 115/12/18 取得標章死線：125 天</div>
   <div class="bar"><i id="prog"></i></div>
   <p class="barlab" id="proglab">進度 0 / 12</p>
 </header>
+
+<nav class="quick-nav" aria-label="快速導覽">
+  <a href="#start">先選我的情境</a>
+  <a href="#status">看目前進度</a>
+  <a href="#help">遇到問題查這裡</a>
+  <a href="#journey">看完整路線</a>
+  <a href="migration-story.html">閱讀完整故事</a>
+</nav>
+
+<section class="start-here" id="start" aria-labelledby="start-title">
+  <div class="section-lead">
+    <h2 id="start-title">先選你的情境，再開始操作</h2>
+    <p>第一次來不用從 12 張卡片猜起；點最像你現在狀況的入口，頁面會帶你跳到正確位置。</p>
+  </div>
+  <div class="start-grid">
+    <a class="start-card" href="#upload">
+      <strong>🧭 我剛開始搬站</strong>
+      <span>先完成必要檔案與首頁區塊，再進入正式站驗證。</span>
+      <b>從送審前開始 →</b>
+    </a>
+    <a class="start-card" href="#switch">
+      <strong>🌐 我已切到正式 www</strong>
+      <span>確認 www、schoolweb2、web 三個網址的工作分工。</span>
+      <b>先看網址分工 →</b>
+    </a>
+    <a class="start-card" href="#freego">
+      <strong>🧪 我要跑 FreeGo</strong>
+      <span>只掃正式 www；準備站的歷史數字不能當正式證明。</span>
+      <b>進入 FreeGo 步驟 →</b>
+    </a>
+    <a class="start-card" href="#apply">
+      <strong>📨 我要申請 AA</strong>
+      <span>FreeGo 自動檢測完成後，依實際頁面填自我評量。</span>
+      <b>進入送審步驟 →</b>
+    </a>
+    <a class="start-card" href="migration-story.html#web">
+      <strong>🔒 web 舊站不安全</strong>
+      <span>舊站不跑 AA；先看 HTTPS、DNS 與憑證的獨立處理方法。</span>
+      <b>看 web 憑證故事 →</b>
+    </a>
+    <a class="start-card" href="#help">
+      <strong>🧩 我遇到問題</strong>
+      <span>用下方查錯卡與搜尋框，先判斷現象再做修正。</span>
+      <b>開啟查錯索引 →</b>
+    </a>
+  </div>
+</section>
+
+<section class="status-board" id="status" aria-labelledby="status-title">
+  <h2 id="status-title">目前這個專案走到哪裡？</h2>
+  <p class="why">石門國小目前不是從零開始：正式 www 已送出 AA 自我評量，案件狀態是「待指派」；以下只列已驗證的事實。</p>
+  <div class="status-grid">
+    <div class="status-item"><b>✅ 正式 www</b><span>已上線，AA 範圍只看這個網址</span></div>
+    <div class="status-item"><b>✅ FreeGo</b><span>248 頁、0 逾時、ME1320200C 清單無</span></div>
+    <div class="status-item"><b>✅ AA 申請</b><span>自我評量已送出，等待官方指派</span></div>
+    <div class="status-item"><b>✅ 舊站 web</b><span>Let’s Encrypt 已完成，HTTP 301 → HTTPS 200</span></div>
+  </div>
+</section>
+
+<div class="searchbar" role="search" aria-label="操作台快速查詢">
+  <label for="quick-find">🔎 快速查詢步驟與問題</label>
+  <input id="quick-find" type="search" autocomplete="off" placeholder="輸入：FreeGo、DNS、憑證、對比度、待指派、成員…">
+  <button class="search-clear" id="search-clear" type="button">清除</button>
+  <p class="search-help">會篩選下方操作步驟與查錯卡；清空後恢復完整路線。</p>
+  <p id="search-status" aria-live="polite">可搜尋 12 個步驟與查錯索引。</p>
+</div>
 
 <div class="note" style="margin-bottom:1.5rem; border-left:4px solid #b45309">
   <b>2026/08/14 進度更新：</b>正式站 <code>www.smes.tyc.edu.tw</code> 已上線，內容以它為準；準備站與正式站外觀相近，但頁面清單已不同，不視為即時同步。
@@ -270,12 +384,68 @@ footer a { color:var(--accent); font-weight:700; }
 </div>
 
 <div class="note" style="margin-bottom:1.5rem">
-  <b>怎麼用這一頁：</b>由上往下做，做完一項就打勾（進度會自動記住，關掉重開也還在）。
+  <b>怎麼用這一頁：</b>先選情境或搜尋問題，再由上往下做；做完一項就打勾（進度會自動記住，關掉重開也還在）。
   「複製」按鈕會把要貼的內容整份放進剪貼簿。
   <b>送審前只需要做完第一區塊</b>——研習與中心都強調「做越多越容易被挑毛病，趁資料不多時送審」。
 </div>
 
-<h2 class="phase" style="--c:#0f766e"><span class="pn">送審前</span><span class="cnt">8 個步驟</span></h2><div class="grid"><section class="card" id="color" style="--sc:#228155">
+<section class="help-hub" id="help" aria-labelledby="help-title">
+  <div class="section-lead">
+    <h2 id="help-title">遇到問題，先查這裡</h2>
+    <p>先辨識現象，再決定要不要改；不要因為看到一個數字就直接全站重做。</p>
+  </div>
+  <div class="help-grid">
+    <article class="help-card searchable">
+      <h3>兩個網站看起來一樣，是同步嗎？</h3>
+      <p><b>判斷：</b>不可以只看外觀。正式 AA 只認 www，schoolweb2 只當準備站。</p>
+      <p><b>先做：</b>把網址、頁面數、檢查日期一起記下來，再重新查正式 www。</p>
+      <a href="migration-story.html#domains">看三個網址的分工 →</a>
+    </article>
+    <article class="help-card searchable">
+      <h3>本機對比度出現 1.00 或很多警示</h3>
+      <p><b>判斷：</b>這是找線索，不是單獨的 FreeGo 失敗證明；先看實際文字與背景是否真的看不見。</p>
+      <p><b>先做：</b>保留現況，等正式 FreeGo 或人工審核明確指出問題再修。</p>
+      <a href="#textcolor">跳到色彩判讀步驟 →</a>
+    </article>
+    <article class="help-card searchable">
+      <h3>FreeGo 顯示 NO，或 A／AA 數字看不懂</h3>
+      <p><b>判斷：</b>先確認輸入的是正式 www、型態是全網站、等級是 AA；不要拿舊測試站報告代替。</p>
+      <p><b>先做：</b>保留報告與日期，查看是否為同一個共用問題，再修正後重測。</p>
+      <a href="#freego">跳到 FreeGo 步驟 →</a>
+    </article>
+    <article class="help-card searchable">
+      <h3>web 舊站顯示不安全或憑證失敗</h3>
+      <p><b>判斷：</b>web 是舊站 HTTPS 線，不納入 AA；DNS、CAA、nginx 與 TLS 要分開查。</p>
+      <p><b>先做：</b>看 HTTP 是否 301、HTTPS 是否 200，再讀取憑證主體、SAN 與到期日。</p>
+      <a href="migration-story.html#web">看 web 憑證查錯故事 →</a>
+    </article>
+    <article class="help-card searchable">
+      <h3>AA 送出後顯示「待指派」</h3>
+      <p><b>判斷：</b>代表案件已進入等待官方指派／審查階段，不是標章已核發，也不代表送出失敗。</p>
+      <p><b>先做：</b>保留案件畫面與日期，等待平台通知；不要為了等待而無限增加新內容。</p>
+      <a href="#apply">跳到線上送審步驟 →</a>
+    </article>
+    <article class="help-card searchable">
+      <h3>公開 GitHub 找不到成員資料</h3>
+      <p><b>判斷：</b>這是刻意的隱私保護，不是漏檔；公開版不放姓名、Email、電話或內部批次資料。</p>
+      <p><b>先做：</b>參考格式與流程即可，請各校使用自己的校內安全資料，不要把個資貼進公開 repo。</p>
+      <a href="migration-story.html#now">看公開紀錄的安全邊界 →</a>
+    </article>
+  </div>
+  <h3>官方與專案參考入口</h3>
+  <div class="ref-grid">
+    <a href="https://schoolweb.tyc.edu.tw/modules/tad_book3/index.php?op=list_docs&amp;tbsn=1" target="_blank" rel="noopener noreferrer">共構網站官方總目錄 ↗</a>
+    <a href="https://schoolweb.tyc.edu.tw/modules/tad_book3/page.php?tbsn=1&amp;tbdsn=67" target="_blank" rel="noopener noreferrer">官方步驟 67：申請流程 ↗</a>
+    <a href="https://schoolweb.tyc.edu.tw/modules/tad_book3/page.php?tbsn=1&amp;tbdsn=68" target="_blank" rel="noopener noreferrer">官方步驟 68：自我評量 ↗</a>
+    <a href="https://accessibility.moda.gov.tw/Home/Apply" target="_blank" rel="noopener noreferrer">數位發展部申請入口 ↗</a>
+    <a href="https://accessibility.moda.gov.tw/Ccessibility/Detail/109?Category=2%2F" target="_blank" rel="noopener noreferrer">無障礙標章流程說明 ↗</a>
+    <a href="migration-story.html">本專案完整實戰故事集 →</a>
+  </div>
+</section>
+
+<h2 class="phase" id="journey" style="--c:#0f766e"><span class="pn">完整操作路線</span><span class="cnt">12 個步驟</span></h2>
+
+<h2 class="phase" style="--c:#0f766e"><span class="pn">送審前</span><span class="cnt">8 個步驟</span></h2><div class="grid"><section class="card searchable" id="color" style="--sc:#228155">
 <h3><label class="chk"><input type="checkbox" data-id="color"> <span class="num">1</span> <span class="t">色彩警示暫不強制修改</span></label></h3>
 <p class="why">正式 www 的 Freego 已完成 248 頁 AA 自動檢測且 `ME1320200C` 清單為無，報告尚未指出色彩問題；因此本機對比度警示仍不直接當成送審失敗。</p>
 <ol class='steps'>
@@ -284,7 +454,7 @@ footer a { color:var(--accent); font-weight:700; }
 <li>只有 Freego 或人工審核報告明確指出色彩問題時才修正</li>
 </ol>
 <p class="note">💡 2026-08-14 正式站 Freego 報告是 248 頁、0 頁逾時、ME1320200C 清單為無；目前沒有色彩違規證據。</p>
-</section><section class="card" id="upload" style="--sc:#228163">
+</section><section class="card searchable" id="upload" style="--sc:#228163">
 <h3><label class="chk"><input type="checkbox" data-id="upload"> <span class="num">2</span> <span class="t">上傳 5 個檔案（先做，下一步會用到網址）</span></label><span class="mins">約 10 分</span></h3>
 <p class="why">這些檔案原本掛在舊站，或檔名不合規（含括號）。已經全部下載並改好中文檔名，而且驗證過都是「文字可選取」的 PDF/ODT，符合無障礙規範。</p>
 <ol class='steps'>
@@ -301,7 +471,7 @@ footer a { color:var(--accent); font-weight:700; }
 <li>📄 校外人士協助教學或活動要點.pdf <span class='sz'>90 KB</span></li>
 </ul>
 <p class="note">💡 檔名千萬不要改回英文或加括號——「檔名要有意義的中文、不可含 &amp;#38; # % 等特殊符號」是規範明文。</p>
-</section><section class="card" id="blocks" style="--sc:#228171">
+</section><section class="card searchable" id="blocks" style="--sc:#228171">
 <h3><label class="chk"><input type="checkbox" data-id="blocks"> <span class="num">3</span> <span class="t">貼 5 個區塊修正檔（修掉 55 處問題）</span></label><span class="mins">約 25 分</span></h3>
 <p class="why">先前從舊站搬入的首頁區塊曾有 9 條死連結與一批 title 用詞問題；目前實測已有 6 條自製小站連結修好，剩下 3 條要等檔案或頁面網址補齊。</p>
 <ol class='steps'>
@@ -319,7 +489,7 @@ footer a { color:var(--accent); font-weight:700; }
 <div class="copyrow"><span>區塊：石門網路教學資源</span><button class="btn" data-store="blocks" data-key="石門網路教學資源">複製</button></div>
 <div class="copyrow"><span>區塊：重要宣導連結</span><button class="btn" data-store="blocks" data-key="重要宣導連結">複製</button></div>
 <p class="note">💡 修正後全站 title 只剩三種寫法：「PDF文件，另開新視窗」「ODT文件，另開新視窗」「另開新視窗」；正式站 Freego 自動檢測已完成，後續以人工檢測為準。</p>
-</section><section class="card" id="textcolor" style="--sc:#22817f">
+</section><section class="card searchable" id="textcolor" style="--sc:#22817f">
 <h3><label class="chk"><input type="checkbox" data-id="textcolor"> <span class="num">4</span> <span class="t">本機文字色彩警示（不列為必要待辦）</span></label></h3>
 <p class="why">本機腳本曾標出校史沿革、石門粉絲團與歷任校長的色彩警示；但臨時站的歷史 Freego 結果不能取代正式 www 的檢測，目前不把這些警示直接當成必須改色的送審門檻。</p>
 <ol class='steps'>
@@ -331,7 +501,7 @@ footer a { color:var(--accent); font-weight:700; }
 <tr><td>本機警示位置</td><td><code>校史沿革、石門粉絲團、歷任校長</code></td><td><code>目前保留，等正式報告指出再修</code></td></tr>
 </tbody></table></div>
 <p class="note">💡 對比度工具保留作為找線索的小工具；送審判定以正式網址的 Freego 與人工審核為準。</p>
-</section><section class="card" id="content" style="--sc:#247d89">
+</section><section class="card searchable" id="content" style="--sc:#247d89">
 <h3><label class="chk"><input type="checkbox" data-id="content"> <span class="num">5</span> <span class="t">補 2 篇缺漏的內容（走 Monica）</span></label><span class="mins">約 30 分</span></h3>
 <p class="why">舊站學校簡介有 7 篇，新站只有 6 篇，少了「石門校歌」。另外「導師及科任」的班級對照表也還沒搬。</p>
 <ol class='steps'>
@@ -343,7 +513,7 @@ footer a { color:var(--accent); font-weight:700; }
 </ol>
 <p class="note priv">🔒 這一步要用到的資料含個人信箱與分機，公開版不提供。請開電腦上的 <code>G:\Agent\XOOPS\members\</code>（成員批次資料）或 <code>work\7\monica_input.txt</code>、<code>work\28\monica_input.txt</code>（Monica 輸入包），或直接用本機版的 <code>遷移操作台.html</code>。</p>
 <p class="note">💡 石門校歌放「學校簡介」，導師及科任建議放「教務處 → 自由編輯頁」。</p>
-</section><section class="card" id="members" style="--sc:#297b99">
+</section><section class="card searchable" id="members" style="--sc:#297b99">
 <h3><label class="chk"><input type="checkbox" data-id="members"> <span class="num">6</span> <span class="t">補成員資料</span></label><span class="mins">約 25 分</span></h3>
 <p class="why">輔導室 4 位資源班教師缺 Email；幼兒園處室還沒有任何成員。</p>
 <ol class='steps'>
@@ -356,7 +526,7 @@ footer a { color:var(--accent); font-weight:700; }
 <p class="fmt">格式：<code>職稱|姓名|Email|電話#分機|業務1;業務2</code></p>
 <p class="note priv">🔒 這一步要用到的資料含個人信箱與分機，公開版不提供。請開電腦上的 <code>G:\Agent\XOOPS\members\</code>（成員批次資料）或 <code>work\7\monica_input.txt</code>、<code>work\28\monica_input.txt</code>（Monica 輸入包），或直接用本機版的 <code>遷移操作台.html</code>。</p>
 <p class="note">💡 「成員設定」只是讓業務職掌頁面有內容，不代表有發文權限——權限在「群組帳號設定」。</p>
-</section><section class="card" id="news" style="--sc:#2d75a9">
+</section><section class="card searchable" id="news" style="--sc:#2d75a9">
 <h3><label class="chk"><input type="checkbox" data-id="news"> <span class="num">7</span> <span class="t">連續發幾天公告</span></label></h3>
 <p class="why">送審門檻之一是「讓行政人員進去發個兩三天的公告」，做出「這是一個活的網站」的樣子。</p>
 <ol class='steps'>
@@ -366,7 +536,7 @@ footer a { color:var(--accent); font-weight:700; }
 <li>（沒有文字檔就把海報丟給 Monica，讓它把文字讀出來）</li>
 </ol>
 <p class="note">💡 研習原話：「只要海報裡面的內容有放在公告裡那就 OK；如果只寫『內容如題』然後丟兩張海報，那不行。」</p>
-</section><section class="card" id="verify" style="--sc:#2d63a9">
+</section><section class="card searchable" id="verify" style="--sc:#2d63a9">
 <h3><label class="chk"><input type="checkbox" data-id="verify"> <span class="num">8</span> <span class="t">可選本機預檢與 Freego 結果核對</span></label><span class="mins">約 5 分</span></h3>
 <p class="why">本機腳本只用來找出連結與內容線索，不是送審必要門檻；正式送審判定以正式網址的 Freego 全網站 AA 報告為準。</p>
 <ol class='steps'>
@@ -378,7 +548,7 @@ footer a { color:var(--accent); font-weight:700; }
 <div class="copyrow"><span>可選：檢查連結與 AA 問題：<code>python scripts/audit_new_site.py --check-links</code></span><button class="btn" data-val="python scripts/audit_new_site.py --check-links">複製</button></div>
 <div class="copyrow"><span>可選：檢查文字對比度：<code>python scripts/check_contrast.py</code></span><button class="btn" data-val="python scripts/check_contrast.py">複製</button></div>
 <div class="copyrow"><span>可選：比對新舊站內容：<code>python scripts/compare_sites.py</code></span><button class="btn" data-val="python scripts/compare_sites.py">複製</button></div>
-</section></div><h2 class="phase" style="--c:#b45309"><span class="pn">送審</span><span class="cnt">3 個步驟</span></h2><div class="grid"><section class="card" id="switch" style="--sc:#a9672d">
+</section></div><h2 class="phase" style="--c:#b45309"><span class="pn">送審</span><span class="cnt">3 個步驟</span></h2><div class="grid"><section class="card searchable" id="switch" style="--sc:#a9672d">
 <h3><label class="chk"><input type="checkbox" data-id="switch"> <span class="num">1</span> <span class="t">確認正式網址與舊站網址分工</span></label></h3>
 <p class="why">送審網址必須是 https://www.smes.tyc.edu.tw；目前 www 已上線。schoolweb2 是準備站，不假設與正式站即時同步；web 只保留舊站並處理已完成的 HTTPS 憑證。</p>
 <ol class='steps'>
@@ -391,7 +561,7 @@ footer a { color:var(--accent); font-weight:700; }
 <li>切換完成後先測試首頁、選單、附件與重要頁面，再進行正式網址 Freego 檢測</li>
 </ol>
 <p class="note">💡 平台手冊明載：臨時網址切換成正式網址後，必須重新點擊「處室設定」標題，更新行政處室連結。參考網址：https://schoolweb.tyc.edu.tw/modules/tad_book3/page.php?tbdsn=4&amp;tbsn=1</p>
-</section><section class="card" id="freego" style="--sc:#996c29">
+</section><section class="card searchable" id="freego" style="--sc:#996c29">
 <h3><label class="chk"><input type="checkbox" data-id="freego"> <span class="num">2</span> <span class="t">Freego 檢測</span></label><span class="mins">約 60 分</span></h3>
 <p class="why">正式送審必要的軟體檢測；臨時網址的歷史結果不能取代正式 www，必須以正式網址的完整檢測為準。</p>
 <ol class='steps'>
@@ -410,7 +580,7 @@ footer a { color:var(--accent); font-weight:700; }
 <li>查看 <a href="https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70" target="_blank" rel="noopener noreferrer">數發部 Freego 現行說明</a></li>
 </ol>
 <p class="note">💡 正式站 Freego 自動檢測已通過；AA 自我評量已送出，案件目前顯示「待指派」，接下來等待官方軟體與人工審查。</p>
-</section><section class="card" id="apply" style="--sc:#896e24">
+</section><section class="card searchable" id="apply" style="--sc:#896e24">
 <h3><label class="chk"><input type="checkbox" data-id="apply"> <span class="num">3</span> <span class="t">線上送審</span></label><span class="mins">約 60 分</span></h3>
 <p class="why">Freego 通過只是申請前提；正式站 AA 自我評量已完成送出，目前案件狀態為「待指派」，等待數發部軟體與人工審核。</p>
 <ol class='steps'>
@@ -430,7 +600,7 @@ footer a { color:var(--accent); font-weight:700; }
 <li><label><input type="checkbox" data-id="apply-c19"> <b>不要提供後台帳密</b>給審查員</label></li>
 </ul></div>
 <p class="note">💡 審核結果以平台通知為準；若退回或限期改善，依通知期限修正並回覆。流程說明請見數發部官方申請頁。</p>
-</section></div><h2 class="phase" style="--c:#4c1d95"><span class="pn">送審後</span><span class="cnt">1 個步驟</span></h2><div class="grid"><section class="card" id="after" style="--sc:#522da9">
+</section></div><h2 class="phase" style="--c:#4c1d95"><span class="pn">送審後</span><span class="cnt">1 個步驟</span></h2><div class="grid"><section class="card searchable" id="after" style="--sc:#522da9">
 <h3><label class="chk"><input type="checkbox" data-id="after"> <span class="num">1</span> <span class="t">取得標章後 + 慢慢補內容</span></label></h3>
 <p class="why">研習與中心都強調「做越多越容易被挑毛病，趁資料不多時送審」。這些留到拿到標章後再做。</p>
 <ol class='steps'>
@@ -455,6 +625,7 @@ footer a { color:var(--accent); font-weight:700; }
 
 <footer>
   石門國小校網遷移專案 · 操作台<br>
+  <a href="migration-story.html">完整實戰故事集</a> · <a href="https://github.com/cagoooo/smes-web-migration" target="_blank" rel="noopener noreferrer">GitHub 公開 repository</a><br>
   詳細說明文件在 <code>docs\</code>，工具在 <code>scripts\</code><br>
   Made with ❤️ by
   <a href="https://www.smes.tyc.edu.tw/modules/tadnews/page.php?ncsn=11&amp;nsn=16#a5"
@@ -508,6 +679,33 @@ document.addEventListener("change", e => {
 });
 paint();
 
+// 快速查詢：同一個搜尋框同時篩選操作卡與查錯卡，讓使用者先找到問題再決定下一步。
+(function () {
+  const input = document.getElementById("quick-find");
+  const clear = document.getElementById("search-clear");
+  const status = document.getElementById("search-status");
+  if (!input || !clear || !status) return;
+  const targets = [...document.querySelectorAll(".card, .help-card")];
+  function filter() {
+    const term = input.value.trim().toLocaleLowerCase();
+    let hits = 0;
+    targets.forEach(el => {
+      const match = !term || el.textContent.toLocaleLowerCase().includes(term);
+      el.hidden = !match;
+      if (match) hits++;
+    });
+    clear.hidden = !term;
+    status.textContent = term ? `「${input.value.trim()}」找到 ${hits} 個項目` :
+      "可搜尋 12 個步驟與查錯索引。";
+  }
+  input.addEventListener("input", filter);
+  clear.addEventListener("click", () => {
+    input.value = "";
+    filter();
+    input.focus();
+  });
+})();
+
 document.addEventListener("click", async e => {
   const b = e.target.closest(".btn");
   if (!b) return;
@@ -551,7 +749,7 @@ calc();
 <script>
 (function () {
   if (!('serviceWorker' in navigator)) return;
-  var APP_VERSION = '2026.08.14-5';
+  var APP_VERSION = '2026.08.15-1';
   var SW_REG = null, UPDATING = false;
 
   function applyUpdate() {
