@@ -1,7 +1,7 @@
 {
-  "name": "石門國小校網遷移操作台",
-  "short_name": "校網遷移",
-  "description": "12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。",
+  "name": "校網遷移與 AA 無障礙實作操作台",
+  "short_name": "校網遷移指南",
+  "description": "給各校資訊組長使用的 12 步驟校網遷移與 AA 無障礙實作指南。",
   "lang": "zh-Hant",
   "dir": "ltr",
   "start_url": "./",

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 產生 favicon 全套 + OG 社群預覽圖。
+ * 產生跨校分享版 favicon 全套 + OG 社群預覽圖。
  *
  * 用本機微軟正黑體（skill: og-social-preview-zh 的「本機系統中文字型法」）——
  * 產物是點陣 PNG 並直接 commit，部署後不依賴字型，所以不會有 Linux tofu 問題。
@@ -85,7 +85,7 @@ function makeIcon(size, { maskable = false } = {}) {
   const cx = size / 2;
   const cy = size / 2;
 
-  // 主視覺：「石」字
+  // 主視覺：「校」字；不放任何單一學校識別。
   ctx.save();
   ctx.translate(cx, cy);
   ctx.scale(scale, scale);
@@ -93,7 +93,7 @@ function makeIcon(size, { maskable = false } = {}) {
   ctx.font = `${Math.round(size * 0.58)}px JhengHeiBold`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText('石', 0, -size * 0.045);
+  ctx.fillText('校', 0, -size * 0.045);
   ctx.restore();
 
   // 右下角打勾（代表「逐項完成」）
@@ -130,7 +130,7 @@ for (const s of [16, 32, 48]) {
 writeFileSync(resolve(ROOT, 'favicon.ico'), await pngToIco(icoParts));
 
 // favicon.svg（向量，高 DPI 最清晰）
-writeFileSync(resolve(ROOT, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="石門國小校網遷移操作台">
+writeFileSync(resolve(ROOT, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="校網遷移操作台">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="${GREEN_LIGHT}"/>
@@ -139,7 +139,7 @@ writeFileSync(resolve(ROOT, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/
   </defs>
   <rect width="64" height="64" rx="14" fill="url(#g)"/>
   <text x="30" y="40" font-family="Microsoft JhengHei, Noto Sans TC, sans-serif"
-        font-size="34" font-weight="700" fill="${CREAM}" text-anchor="middle">石</text>
+        font-size="34" font-weight="700" fill="${CREAM}" text-anchor="middle">校</text>
   <circle cx="48" cy="48" r="12" fill="${GOLD}"/>
   <path d="M42.5 48.2 L46.4 52 L53.5 44.4" fill="none" stroke="${GREEN_DARK}"
         stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -179,10 +179,10 @@ function makeOG() {
   const ic = makeIcon(iconSize);
   ctx.drawImage(ic, 74, 74);
 
-  // 學校名
+  // 公開版不放學校名稱，改用跨校教材定位
   ctx.fillStyle = 'rgba(255,255,255,0.82)';
   ctx.font = '26px JhengHei';
-  ctx.fillText('桃園市龍潭區石門國民小學', 214, 126);
+  ctx.fillText('各校校網遷移與 AA 實作指南', 214, 126);
 
   ctx.fillStyle = GOLD;
   ctx.font = '22px JhengHeiBold';
@@ -219,7 +219,7 @@ function makeOG() {
   drawCheck(ctx, 110, 550, 22, GOLD, 4);
   ctx.fillStyle = '#ffffff';
   ctx.font = '23px JhengHeiBold';
-  ctx.fillText('cagoooo.github.io/smes-web-migration', 140, 559);
+  ctx.fillText('cagoooo.github.io/school-web-migration-playbook', 140, 559);
 
   return c;
 }

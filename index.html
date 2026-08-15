@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>石門國小校網遷移操作台</title>
-<meta name="description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
+<title>校網遷移與 AA 無障礙實作操作台</title>
+<meta name="description" content="給各校資訊組長使用的 12 步驟校網遷移與 AA 無障礙實作指南。可依各校網址、平台與審查狀態套用，不含任何單一學校的個案資料。">
 <meta name="theme-color" content="#5d6b47">
-<link rel="canonical" href="https://cagoooo.github.io/smes-web-migration/">
+<link rel="canonical" href="https://cagoooo.github.io/school-web-migration-playbook/">
 
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -14,22 +14,22 @@
 <link rel="manifest" href="manifest.webmanifest">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="桃園市龍潭區石門國民小學">
-<meta property="og:url" content="https://cagoooo.github.io/smes-web-migration/">
-<meta property="og:title" content="石門國小校網遷移操作台">
-<meta property="og:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta property="og:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.15-1">
-<meta property="og:image:secure_url" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.15-1">
+<meta property="og:site_name" content="校網遷移與 AA 無障礙實作操作台">
+<meta property="og:url" content="https://cagoooo.github.io/school-web-migration-playbook/">
+<meta property="og:title" content="校網遷移與 AA 無障礙實作操作台">
+<meta property="og:description" content="給各校資訊組長使用的 12 步驟校網遷移與 AA 無障礙實作指南。可依各校網址、平台與審查狀態套用，不含任何單一學校的個案資料。">
+<meta property="og:image" content="https://cagoooo.github.io/school-web-migration-playbook/og-preview.png?v=2026.08.15-2">
+<meta property="og:image:secure_url" content="https://cagoooo.github.io/school-web-migration-playbook/og-preview.png?v=2026.08.15-2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="石門國小校網遷移操作台：12 個步驟，從舊校網搬到教育局共構平台">
+<meta property="og:image:alt" content="校網遷移與 AA 無障礙實作操作台：12 個步驟，適用於各校校網搬遷與 AA 實作">
 <meta property="og:locale" content="zh_TW">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="石門國小校網遷移操作台">
-<meta name="twitter:description" content="12 個步驟，從舊校網搬到教育局 XOOPS 共構平台並取得無障礙 AA 標章。逐步操作清單、一鍵複製內容、內建對比度檢查工具。">
-<meta name="twitter:image" content="https://cagoooo.github.io/smes-web-migration/og-preview.png?v=2026.08.15-1">
+<meta name="twitter:title" content="校網遷移與 AA 無障礙實作操作台">
+<meta name="twitter:description" content="給各校資訊組長使用的 12 步驟校網遷移與 AA 無障礙實作指南。可依各校網址、平台與審查狀態套用，不含任何單一學校的個案資料。">
+<meta name="twitter:image" content="https://cagoooo.github.io/school-web-migration-playbook/og-preview.png?v=2026.08.15-2">
 
 <style>
 :root {
@@ -296,13 +296,13 @@ footer a { color:var(--accent); font-weight:700; }
 <div class="wrap">
 <header class="top">
   <div class="topbar">
-    <h1>石門國小校網遷移操作台</h1>
+    <h1>校網遷移與 AA 無障礙實作操作台</h1>
     <button id="theme" type="button" aria-live="polite">🌙 深色</button>
   </div>
-  <p class="sub">桃園市龍潭區石門國民小學 · 舊站搬到共構新站 · 取得無障礙 AA 標章</p>
-  <p class="sub">正式站 www.smes.tyc.edu.tw ＿ 舊站 web.smes.tyc.edu.tw（只處理憑證） ＿ 準備站 schoolweb2.tyc.edu.tw/~smes_www/（不假設同步）</p>
+  <p class="sub">跨校通用的舊校網搬遷、共構平台建置與無障礙 AA 送審操作手冊。</p>
+  <p class="sub">正式新站：<code>&lt;正式新站網址&gt;</code> ＿ 舊站：<code>&lt;舊站網址&gt;</code>（HTTPS 工作線） ＿ 準備站：<code>&lt;共構準備站網址&gt;</code>（不假設同步）</p>
   <p class="sub">📖 <a href="migration-story.html">閱讀完整實戰故事集：把「應該可以」變成「我驗證過」</a></p>
-  <div class="dl">距離 115/12/18 取得標章死線：125 天</div>
+  <div class="dl">公開示範版：送審期限與網址請換成你校的官方資料</div>
   <div class="bar"><i id="prog"></i></div>
   <p class="barlab" id="proglab">進度 0 / 12</p>
 </header>
@@ -328,7 +328,7 @@ footer a { color:var(--accent); font-weight:700; }
     </a>
     <a class="start-card" href="#switch">
       <strong>🌐 我已切到正式 www</strong>
-      <span>確認 www、schoolweb2、web 三個網址的工作分工。</span>
+      <span>確認正式站、準備站、舊站三個網址的工作分工。</span>
       <b>先看網址分工 →</b>
     </a>
     <a class="start-card" href="#freego">
@@ -356,12 +356,12 @@ footer a { color:var(--accent); font-weight:700; }
 
 <section class="status-board" id="status" aria-labelledby="status-title">
   <h2 id="status-title">目前這個專案走到哪裡？</h2>
-  <p class="why">石門國小目前不是從零開始：正式 www 已送出 AA 自我評量，案件狀態是「待指派」；以下只列已驗證的事實。</p>
+  <p class="why">這是去識別化示範版：請把正式網址、頁數、報告日期與官方案件狀態換成你校的實測資料。</p>
   <div class="status-grid">
-    <div class="status-item"><b>✅ 正式 www</b><span>已上線，AA 範圍只看這個網址</span></div>
-    <div class="status-item"><b>✅ FreeGo</b><span>248 頁、0 逾時、ME1320200C 清單無</span></div>
-    <div class="status-item"><b>✅ AA 申請</b><span>自我評量已送出，等待官方指派</span></div>
-    <div class="status-item"><b>✅ 舊站 web</b><span>Let’s Encrypt 已完成，HTTP 301 → HTTPS 200</span></div>
+    <div class="status-item"><b>🧭 正式新站</b><span>填入你校正式網址；AA 與 FreeGo 只看這個網址</span></div>
+    <div class="status-item"><b>🧪 FreeGo</b><span>填入實際頁數、逾時與違規代碼，不複製他校數字</span></div>
+    <div class="status-item"><b>📨 AA 申請</b><span>填入自我評量是否送出與官方目前狀態</span></div>
+    <div class="status-item"><b>🔒 舊站 HTTPS</b><span>若保留舊站，另記錄 HTTP 轉址與 TLS 憑證結果</span></div>
   </div>
 </section>
 
@@ -374,12 +374,13 @@ footer a { color:var(--accent); font-weight:700; }
 </div>
 
 <div class="note" style="margin-bottom:1.5rem; border-left:4px solid #b45309">
-  <b>2026/08/14 進度更新：</b>正式站 <code>www.smes.tyc.edu.tw</code> 已上線，內容以它為準；準備站與正式站外觀相近，但頁面清單已不同，不視為即時同步。
+  <b>公開版使用提示：</b>這裡刻意不放任何單一學校的校名、網域、真實頁數、案件編號或完成狀態。
+  請把下列項目換成你校自己的資料：
   <ul style="margin:.55rem 0 0 1.2rem">
-    <li>Freego、AA 與送審準備只針對正式 <code>www</code>；準備站的歷史結果不作正式證明</li>
-    <li>舊站 <code>web</code> 不跑 AA，只處理 Let’s Encrypt 憑證；憑證已完成，HTTP 會轉 HTTPS</li>
-    <li>正式 <code>www</code> 的 Freego 自動檢測與 AA 自我評量已完成；案件目前「待指派」，等待官方審查</li>
-    <li>本機色彩警示不再作為強制改色依據；以 Freego 與人工審核報告為準</li>
+    <li>正式新站、共構準備站與舊站的網址角色</li>
+    <li>FreeGo 掃描日期、頁數、逾時與違規代碼</li>
+    <li>AA 自我評量送出日期與官方案件狀態</li>
+    <li>舊站是否保留，以及 HTTPS／轉址的驗證結果</li>
   </ul>
 </div>
 
@@ -397,7 +398,7 @@ footer a { color:var(--accent); font-weight:700; }
   <div class="help-grid">
     <article class="help-card searchable">
       <h3>兩個網站看起來一樣，是同步嗎？</h3>
-      <p><b>判斷：</b>不可以只看外觀。正式 AA 只認 www，schoolweb2 只當準備站。</p>
+      <p><b>判斷：</b>不可以只看外觀。正式 AA 只認正式新站，準備站只作建置參考。</p>
       <p><b>先做：</b>把網址、頁面數、檢查日期一起記下來，再重新查正式 www。</p>
       <a href="migration-story.html#domains">看三個網址的分工 →</a>
     </article>
@@ -447,63 +448,50 @@ footer a { color:var(--accent); font-weight:700; }
 
 <h2 class="phase" style="--c:#0f766e"><span class="pn">送審前</span><span class="cnt">8 個步驟</span></h2><div class="grid"><section class="card searchable" id="color" style="--sc:#228155">
 <h3><label class="chk"><input type="checkbox" data-id="color"> <span class="num">1</span> <span class="t">色彩警示暫不強制修改</span></label></h3>
-<p class="why">正式 www 的 Freego 已完成 248 頁 AA 自動檢測且 `ME1320200C` 清單為無，報告尚未指出色彩問題；因此本機對比度警示仍不直接當成送審失敗。</p>
+<p class="why">正式新站的 FreeGo 與人工審查結果，才是你校的判定依據；本機對比度工具只作線索。</p>
 <ol class='steps'>
-<li>目前不修改處室顏色，也不把本機色彩警示直接視為 Freego 失敗</li>
-<li>保留正式站 Freego 自動檢測結果，人工檢測若明確指出色彩問題再修正</li>
-<li>只有 Freego 或人工審核報告明確指出色彩問題時才修正</li>
+<li>先保留目前色彩設定，不因本機工具的一筆警示就全站換色</li>
+<li>保留你校正式新站的 FreeGo 報告與人工審查紀錄</li>
+<li>只有正式報告明確指出色彩問題時，才回到對應頁面精準修正</li>
 </ol>
-<p class="note">💡 2026-08-14 正式站 Freego 報告是 248 頁、0 頁逾時、ME1320200C 清單為無；目前沒有色彩違規證據。</p>
+<p class="note">💡 不要把其他學校或測試站的結果當成你校的送審證據。</p>
 </section><section class="card searchable" id="upload" style="--sc:#228163">
-<h3><label class="chk"><input type="checkbox" data-id="upload"> <span class="num">2</span> <span class="t">上傳 5 個檔案（先做，下一步會用到網址）</span></label><span class="mins">約 10 分</span></h3>
-<p class="why">這些檔案原本掛在舊站，或檔名不合規（含括號）。已經全部下載並改好中文檔名，而且驗證過都是「文字可選取」的 PDF/ODT，符合無障礙規範。</p>
+<h3><label class="chk"><input type="checkbox" data-id="upload"> <span class="num">2</span> <span class="t">上傳你校送審所需檔案</span></label><span class="mins">約 10 分</span></h3>
+<p class="why">依你校內容盤點與官方要求，先整理需要放到新站的 PDF、ODT 或其他附件，並確認檔案可以選取文字。</p>
 <ol class='steps'>
-<li>檔案在電腦的 <code>G:\Agent\XOOPS\work\fixes\</code> 資料夾裡</li>
-<li>後台 → 找一個處室（建議<b>學務處</b>，因為性平、反霸凌屬學務）→ 「<b>檔案下載</b>」頁面</li>
-<li>把 5 個檔案上傳上去</li>
-<li><b>上傳完把每個檔案的網址記下來</b>，下一步要用</li>
+<li>把要搬入新站的檔案整理到校內安全保存的專案資料夾</li>
+<li>後台 → 找到負責的處室 → 「檔案下載」頁面</li>
+<li>上傳檔案並確認檔名有意義、沒有不必要的特殊符號</li>
+<li>上傳完把每個檔案的網址記下來，後續頁面會用到</li>
 </ol>
-<ul class="files">
-<li>📄 學生懷孕受教權維護及輔導協助流程.pdf <span class='sz'>217 KB</span></li>
-<li>📄 性平學生提案流程圖.pdf <span class='sz'>116 KB</span></li>
-<li>📄 提案單.odt <span class='sz'>28 KB</span></li>
-<li>📄 校園行動載具使用原則.pdf <span class='sz'>111 KB</span></li>
-<li>📄 校外人士協助教學或活動要點.pdf <span class='sz'>90 KB</span></li>
-</ul>
 <p class="note">💡 檔名千萬不要改回英文或加括號——「檔名要有意義的中文、不可含 &amp;#38; # % 等特殊符號」是規範明文。</p>
 </section><section class="card searchable" id="blocks" style="--sc:#228171">
-<h3><label class="chk"><input type="checkbox" data-id="blocks"> <span class="num">3</span> <span class="t">貼 5 個區塊修正檔（修掉 55 處問題）</span></label><span class="mins">約 25 分</span></h3>
-<p class="why">先前從舊站搬入的首頁區塊曾有 9 條死連結與一批 title 用詞問題；目前實測已有 6 條自製小站連結修好，剩下 3 條要等檔案或頁面網址補齊。</p>
+<h3><label class="chk"><input type="checkbox" data-id="blocks"> <span class="num">3</span> <span class="t">貼上共用區塊修正檔（依你校盤點）</span></label><span class="mins">約 25 分</span></h3>
+<p class="why">共用區塊的問題可能在許多頁面重複出現；先處理版型、連結、替代文字與標題等共用問題，再逐頁補內容。</p>
 <ol class='steps'>
-<li>後台 → 「<b>區塊管理</b>」</li>
-<li>找到下面對應的區塊 → 點<b>編輯</b></li>
-<li>在編輯器左上角點「<b>原始碼</b>」切換到原始碼模式</li>
-<li><b>全選原本的內容刪掉</b>，貼上下面複製的內容</li>
-<li>再點一次「原始碼」切回來確認畫面正常 → <b>儲存</b></li>
-<li>正式站目前另需在「石門網路教學資源」區塊刪除鳥類網後面的空白 <code>&lt;a&gt;</code>，保留有文字的「石門鳥類網」連結</li>
-<li>⚠️ 貼上後搜尋看看有沒有 <code>【請換成新站上傳後的網址】</code>，有的話換成上一步上傳的檔案網址</li>
+<li>後台 → 「區塊管理」</li>
+<li>找到要修正的共用區塊 → 點「編輯」</li>
+<li>在編輯器切換到「原始碼」模式</li>
+<li>貼上依你校盤點後整理的修正版內容 → 儲存</li>
+<li>儲存後用瀏覽器檢查畫面、鍵盤操作與外部連結</li>
 </ol>
-<div class="copyrow"><span>區塊：今日午餐資訊</span><button class="btn" data-store="blocks" data-key="今日午餐資訊">複製</button></div>
-<div class="copyrow"><span>區塊：反霸凌_性平宣導</span><button class="btn" data-store="blocks" data-key="反霸凌_性平宣導">複製</button></div>
-<div class="copyrow"><span>區塊：數位學習專區</span><button class="btn" data-store="blocks" data-key="數位學習專區">複製</button></div>
-<div class="copyrow"><span>區塊：石門網路教學資源</span><button class="btn" data-store="blocks" data-key="石門網路教學資源">複製</button></div>
-<div class="copyrow"><span>區塊：重要宣導連結</span><button class="btn" data-store="blocks" data-key="重要宣導連結">複製</button></div>
+<p class="note priv">🔒 公開版不提供任何單一學校的區塊草稿；請用你校自己的盤點結果建立修正版。</p>
 <p class="note">💡 修正後全站 title 只剩三種寫法：「PDF文件，另開新視窗」「ODT文件，另開新視窗」「另開新視窗」；正式站 Freego 自動檢測已完成，後續以人工檢測為準。</p>
 </section><section class="card searchable" id="textcolor" style="--sc:#22817f">
 <h3><label class="chk"><input type="checkbox" data-id="textcolor"> <span class="num">4</span> <span class="t">本機文字色彩警示（不列為必要待辦）</span></label></h3>
-<p class="why">本機腳本曾標出校史沿革、石門粉絲團與歷任校長的色彩警示；但臨時站的歷史 Freego 結果不能取代正式 www 的檢測，目前不把這些警示直接當成必須改色的送審門檻。</p>
+<p class="why">本機工具可能標出你校部分頁面或元件的色彩警示；這類結果先作線索，不直接當成送審失敗。</p>
 <ol class='steps'>
 <li>目前不強制修改這三個頁面的文字顏色，也不需要為了本機警示先停下來</li>
 <li>若日後在後台啟用處室自訂顏色，仍要確認文字與背景對比度大於 4.5:1</li>
 <li>只有正式 Freego 或人工審核報告明確指出問題時，才回到頁面編輯修正</li>
 </ol>
 <div class="tbl"><table><thead><tr><th>頁面</th><th>原本</th><th>改成</th></tr></thead><tbody>
-<tr><td>本機警示位置</td><td><code>校史沿革、石門粉絲團、歷任校長</code></td><td><code>目前保留，等正式報告指出再修</code></td></tr>
+<tr><td>本機警示位置</td><td><code>你校實際頁面或元件</code></td><td><code>先記錄，等正式 FreeGo／人工審查確認</code></td></tr>
 </tbody></table></div>
 <p class="note">💡 對比度工具保留作為找線索的小工具；送審判定以正式網址的 Freego 與人工審核為準。</p>
 </section><section class="card searchable" id="content" style="--sc:#247d89">
-<h3><label class="chk"><input type="checkbox" data-id="content"> <span class="num">5</span> <span class="t">補 2 篇缺漏的內容（走 Monica）</span></label><span class="mins">約 30 分</span></h3>
-<p class="why">舊站學校簡介有 7 篇，新站只有 6 篇，少了「石門校歌」。另外「導師及科任」的班級對照表也還沒搬。</p>
+<h3><label class="chk"><input type="checkbox" data-id="content"> <span class="num">5</span> <span class="t">補齊盤點後的必要內容</span></label><span class="mins">約 30 分</span></h3>
+<p class="why">依舊站與新站的內容盤點，補回審查需要且確實存在的必要頁面；不要為了湊數量自行創造內容。</p>
 <ol class='steps'>
 <li>下面點「複製」→ 內容會整份複製到剪貼簿（提示詞已經寫在裡面，不用另外設定）</li>
 <li>開啟 <b>Monica</b> → 貼上 → 送出</li>
@@ -511,20 +499,19 @@ footer a { color:var(--accent); font-weight:700; }
 <li>新站對應頁面 → 新增內容 → 編輯器左上「<b>原始碼</b>」→ 貼上</li>
 <li>切回所見即所得 → <b>儲存</b></li>
 </ol>
-<p class="note priv">🔒 這一步要用到的資料含個人信箱與分機，公開版不提供。請開電腦上的 <code>G:\Agent\XOOPS\members\</code>（成員批次資料）或 <code>work\7\monica_input.txt</code>、<code>work\28\monica_input.txt</code>（Monica 輸入包），或直接用本機版的 <code>遷移操作台.html</code>。</p>
-<p class="note">💡 石門校歌放「學校簡介」，導師及科任建議放「教務處 → 自由編輯頁」。</p>
+<p class="note priv">🔒 內容草稿可能含教師姓名、班級或聯絡方式；公開版不提供，請在校內安全位置準備自己的素材。</p>
+<p class="note">💡 頁面名稱、處室歸屬與內容數量，請以你校的資訊架構和主管機關要求為準。</p>
 </section><section class="card searchable" id="members" style="--sc:#297b99">
 <h3><label class="chk"><input type="checkbox" data-id="members"> <span class="num">6</span> <span class="t">補成員資料</span></label><span class="mins">約 25 分</span></h3>
-<p class="why">輔導室 4 位資源班教師缺 Email；幼兒園處室還沒有任何成員。</p>
+<p class="why">依你校的處室與職務盤點補齊成員；公開教材只示範格式，不提供任何學校的姓名、Email 或電話。</p>
 <ol class='steps'>
-<li><b>資源班教師 Email</b>：到<b>舊站後台</b> → tad_users 大量會員管理 → 切換到輔導室群組 → 就能看到 4 位老師的信箱，再回新站補上</li>
-<li><b>幼兒園成員</b>：處室設定 → 幼兒園 → 「<b>成員設定</b>」分頁 → 下方的批次輸入框，照格式一行一人貼上</li>
-<li>⚠️ <b>批次輸入框只有在該處室「還沒有任何成員」時才會出現</b>，所以先貼批次、不要先手動加人</li>
-<li>⚠️ 貼上時注意<b>前後不要多空白</b>（Email 多一個空白會影響姓名比對）</li>
-<li>🔴 成員建完<b>還沒結束</b>：要再去「<b>群組帳號設定</b>」分頁，每個人都勾選<b>本校教職員群組</b>＋<b>所屬處室群組</b>，否則登入後不能發文</li>
+<li>使用校內安全保存的最新教職員名單，確認處室、職稱與聯絡資訊</li>
+<li>到新站後台的「成員設定」分頁，依平台格式逐筆或批次輸入</li>
+<li>再到「群組帳號設定」確認每位成員的登入與發文權限</li>
+<li>完成後以測試帳號確認成員頁面與權限都符合你校需求</li>
 </ol>
 <p class="fmt">格式：<code>職稱|姓名|Email|電話#分機|業務1;業務2</code></p>
-<p class="note priv">🔒 這一步要用到的資料含個人信箱與分機，公開版不提供。請開電腦上的 <code>G:\Agent\XOOPS\members\</code>（成員批次資料）或 <code>work\7\monica_input.txt</code>、<code>work\28\monica_input.txt</code>（Monica 輸入包），或直接用本機版的 <code>遷移操作台.html</code>。</p>
+<p class="note priv">🔒 這一步需要你校自己的教職員資料；請勿把姓名、Email、電話或批次名單貼進公開 repository。</p>
 <p class="note">💡 「成員設定」只是讓業務職掌頁面有內容，不代表有發文權限——權限在「群組帳號設定」。</p>
 </section><section class="card searchable" id="news" style="--sc:#2d75a9">
 <h3><label class="chk"><input type="checkbox" data-id="news"> <span class="num">7</span> <span class="t">連續發幾天公告</span></label></h3>
@@ -538,77 +525,66 @@ footer a { color:var(--accent); font-weight:700; }
 <p class="note">💡 研習原話：「只要海報裡面的內容有放在公告裡那就 OK；如果只寫『內容如題』然後丟兩張海報，那不行。」</p>
 </section><section class="card searchable" id="verify" style="--sc:#2d63a9">
 <h3><label class="chk"><input type="checkbox" data-id="verify"> <span class="num">8</span> <span class="t">可選本機預檢與 Freego 結果核對</span></label><span class="mins">約 5 分</span></h3>
-<p class="why">本機腳本只用來找出連結與內容線索，不是送審必要門檻；正式送審判定以正式網址的 Freego 全網站 AA 報告為準。</p>
+<p class="why">本機腳本或瀏覽器檢查只用來找線索；正式判定以你校正式新站的 FreeGo 與官方人工審查為準。</p>
 <ol class='steps'>
-<li>想先找線索時，才在專案資料夾開命令列執行下面的本機檢查</li>
-<li>本機檢查可略過；若執行，一律針對正式 www，並與正式 Freego 報告交叉核對</li>
-<li>schoolweb2 只是準備站；兩站頁面清單已不同，不把它當成正式站同步來源</li>
-<li>不要只因本機色彩警示就強制改色</li>
+<li>想先找線索時，使用你校可控的檢查工具或瀏覽器開發者工具</li>
+<li>檢查時一律輸入你校正式新站網址，不要把準備站當完成證據</li>
+<li>把網址、日期、頁面範圍、報告與修正 commit 一起留下</li>
+<li>先判斷問題是否為共用元件，再決定是否修正與重測</li>
 </ol>
-<div class="copyrow"><span>可選：檢查連結與 AA 問題：<code>python scripts/audit_new_site.py --check-links</code></span><button class="btn" data-val="python scripts/audit_new_site.py --check-links">複製</button></div>
-<div class="copyrow"><span>可選：檢查文字對比度：<code>python scripts/check_contrast.py</code></span><button class="btn" data-val="python scripts/check_contrast.py">複製</button></div>
-<div class="copyrow"><span>可選：比對新舊站內容：<code>python scripts/compare_sites.py</code></span><button class="btn" data-val="python scripts/compare_sites.py">複製</button></div>
 </section></div><h2 class="phase" style="--c:#b45309"><span class="pn">送審</span><span class="cnt">3 個步驟</span></h2><div class="grid"><section class="card searchable" id="switch" style="--sc:#a9672d">
 <h3><label class="chk"><input type="checkbox" data-id="switch"> <span class="num">1</span> <span class="t">確認正式網址與舊站網址分工</span></label></h3>
-<p class="why">送審網址必須是 https://www.smes.tyc.edu.tw；目前 www 已上線。schoolweb2 是準備站，不假設與正式站即時同步；web 只保留舊站並處理已完成的 HTTPS 憑證。</p>
+<p class="why">正式新站、共構準備站與舊站各有不同任務；先確認你校的網址角色，再開始檢查或送審。</p>
 <ol class='steps'>
-<li>確認中心已將 <code>www.smes.tyc.edu.tw</code> 設為正式新站（目前已完成）</li>
-<li>確認學校內容編輯與 Freego 檢測都只針對正式 www，不以 schoolweb2 當完成證據</li>
-<li>舊站保留並以 <code>web.smes.tyc.edu.tw</code> 存取；舊站只處理憑證，不跑 AA</li>
-<li>web.smes.tyc.edu.tw 的 Let's Encrypt 憑證已完成，HTTP 會 301 轉 HTTPS、HTTPS 回應 200；舊站不跑 AA</li>
-<li>切換完成後登入新站後台 → 初始化設定 → 點擊「<b>處室設定</b>」標題一次，重新產生行政處室區塊與導覽列所使用的 JSON，讓處室連結改成正式網址</li>
-<li>⚠️ 再把「石門網路教學資源」區塊裡指向 <code>www.smes.tyc.edu.tw/smes_html/</code> 的 6 條連結改成 <code>web.</code></li>
-<li>切換完成後先測試首頁、選單、附件與重要頁面，再進行正式網址 Freego 檢測</li>
+<li>確認主管機關已將你校的正式新站網址指向新平台</li>
+<li>確認內容編輯與 FreeGo 都只針對正式新站，不以準備站當完成證據</li>
+<li>舊站若要保留，另行確認它的網址、轉址與 HTTPS，不要和 AA 工作混在一起</li>
+<li>切換後依平台手冊重新產生處室設定與導覽列使用的網址資料</li>
+<li>切換完成先測試首頁、選單、附件與重要頁面，再進行正式 FreeGo 檢測</li>
 </ol>
 <p class="note">💡 平台手冊明載：臨時網址切換成正式網址後，必須重新點擊「處室設定」標題，更新行政處室連結。參考網址：https://schoolweb.tyc.edu.tw/modules/tad_book3/page.php?tbdsn=4&amp;tbsn=1</p>
 </section><section class="card searchable" id="freego" style="--sc:#996c29">
 <h3><label class="chk"><input type="checkbox" data-id="freego"> <span class="num">2</span> <span class="t">Freego 檢測</span></label><span class="mins">約 60 分</span></h3>
 <p class="why">正式送審必要的軟體檢測；臨時網址的歷史結果不能取代正式 www，必須以正式網址的完整檢測為準。</p>
 <ol class='steps'>
-<li>2026-08-14 已完成正式 www 的全網站 AA 掃描：248 頁、0 頁逾時，<code>ME1320200C</code> 清單為「無」</li>
-<li>Freego 報告顯示自動檢測部分已通過 AA；前一輪 <code>HM1240401C</code> 空白連結已修正</li>
-<li>報告同時提醒仍須人工檢測；人工審核與正式標章申請不等同於 Freego 自動通過</li>
-<li>安裝 <b>Eclipse Temurin JRE 21</b>（版本必須 17～21，太高太低都不行）</li>
-<li>安裝時「自訂安裝」畫面把 <code>JavaSoft (Oracle) registry keys</code> 改成「<b>安裝</b>」</li>
-<li>下載 Freego，解壓到 <code>C:\MODA\Freego\</code></li>
-<li>到 googlechromelabs.github.io/chrome-for-testing 查 Stable 版本，下載對應的 win64 chromedriver，覆蓋到同一個資料夾</li>
-<li>開 Freego → 輸入 <code>https://www.smes.tyc.edu.tw</code></li>
+<li>在 FreeGo 輸入你校的正式新站網址，不要使用準備站或舊站</li>
 <li>型態選「<b>全網站</b>」、等級選「<b>AA</b>」→ 開始</li>
-<li>掃描時若出現 <code>modules/tad_login/index.php?login&#38;op=tn</code> 載入逾時，<b>那是正常的，不影響送審</b></li>
+<li>保留掃描日期、頁數、逾時頁面、違規代碼與設定，方便重測比較</li>
+<li>若出現登入頁或特定路徑逾時，先記錄網址與時間，再依官方說明判斷，不要直接把所有逾時視為整站失敗</li>
 <li>若有排除資料夾或其他檢測條件，記下設定與原因，申請時在備註說明</li>
-<li>保留 Freego 的 <code>.cat</code> 檢測檔作為專案紀錄；依數發部現行規定，申請時不必上傳報告</li>
+<li>保留 FreeGo 的檢測檔作為校內紀錄；依數發部現行規定，申請時是否上傳以官方表單要求為準</li>
 <li>查看 <a href="https://accessibility.moda.gov.tw/Download/Detail/1749?Category=70" target="_blank" rel="noopener noreferrer">數發部 Freego 現行說明</a></li>
 </ol>
-<p class="note">💡 正式站 Freego 自動檢測已通過；AA 自我評量已送出，案件目前顯示「待指派」，接下來等待官方軟體與人工審查。</p>
+<p class="note">💡 FreeGo 自動檢測、官方人工審查與 AA 標章核發是三個階段；請分開記錄，不要把其中一個寫成全部完成。</p>
 </section><section class="card searchable" id="apply" style="--sc:#896e24">
 <h3><label class="chk"><input type="checkbox" data-id="apply"> <span class="num">3</span> <span class="t">線上送審</span></label><span class="mins">約 60 分</span></h3>
-<p class="why">Freego 通過只是申請前提；正式站 AA 自我評量已完成送出，目前案件狀態為「待指派」，等待數發部軟體與人工審核。</p>
+<p class="why">FreeGo 是申請前的自動檢測；接著依你校正式新站的實際頁面填寫自我評量，再等待官方分案與審查。</p>
 <ol class='steps'>
-<li>用 <b>E 政府公務帳號</b>登入無障礙網路空間服務網（需自然人憑證 + <b>機關代碼</b>）</li>
+<li>用 E 政府公務帳號登入無障礙網路空間服務網（需自然人憑證與機關代碼）</li>
 <li>會員專區 → 網站專區 → 申請網站標章</li>
-<li>自評表已完成送出；目前案件狀態顯示「待指派」，等待官方審核通知</li>
-<li>依現行規定不必重複上傳 Freego 報告；排除設定要在備註中說明</li>
+<li>依你校正式新站的實際狀況填寫自我評量，不要複製其他學校答案</li>
+<li>送出後保存案件畫面與日期，依平台通知等待官方審核</li>
 </ol>
 <div class="checks"><b>送出前逐項核對：</b><ul>
-<li><label><input type="checkbox" data-id="apply-c80"> 網址是 <code>https://www.smes.tyc.edu.tw</code>——要有 s、<b>結尾不可有 index.php</b>、後面不加斜線</label></li>
-<li><label><input type="checkbox" data-id="apply-c54"> 網站名稱含「桃園市」，例如「桃園市龍潭區石門國小 全球資訊網」——<b>絕不可含「無障礙」或「測試」</b></label></li>
-<li><label><input type="checkbox" data-id="apply-c29"> 用<b>機關代碼</b>送審，不可用私人機構（會直接退回）</label></li>
-<li><label><input type="checkbox" data-id="apply-c30"> 標章等級選 <b>AA（中間那個）</b>，很多人在這步選錯</label></li>
-<li><label><input type="checkbox" data-id="apply-c27"> 「<b>網站導覽</b>」四個字一字未改（改了直接退）</label></li>
-<li><label><input type="checkbox" data-id="apply-c37"> 自評表依實際頁面狀況填寫；頁面位置可填「首頁」或對應網址，不要捏造檢查結果</label></li>
+<li><label><input type="checkbox" data-id="apply-c30"> 網址是你校的 HTTPS 正式新站網址，不能填準備站或測試站</label></li>
+<li><label><input type="checkbox" data-id="apply-c31"> 網站名稱填正式校名；不要把「無障礙」或「測試」當成校名的一部分</label></li>
+<li><label><input type="checkbox" data-id="apply-c18"> 用機關代碼送審，不可誤用私人機構資料</label></li>
+<li><label><input type="checkbox" data-id="apply-c23"> 標章等級選 AA（中間那個），送出前再核對一次</label></li>
+<li><label><input type="checkbox" data-id="apply-c29"> 「<b>網站導覽</b>」等平台要求的固定文字不可任意修改</label></li>
+<li><label><input type="checkbox" data-id="apply-c25"> 自評表依實際頁面狀況填寫；頁面位置要能讓審查員重現</label></li>
 <li><label><input type="checkbox" data-id="apply-c18"> 排除資料夾／檢測條件要在申請備註說明</label></li>
 <li><label><input type="checkbox" data-id="apply-c19"> <b>不要提供後台帳密</b>給審查員</label></li>
 </ul></div>
 <p class="note">💡 審核結果以平台通知為準；若退回或限期改善，依通知期限修正並回覆。流程說明請見數發部官方申請頁。</p>
 </section></div><h2 class="phase" style="--c:#4c1d95"><span class="pn">送審後</span><span class="cnt">1 個步驟</span></h2><div class="grid"><section class="card searchable" id="after" style="--sc:#522da9">
-<h3><label class="chk"><input type="checkbox" data-id="after"> <span class="num">1</span> <span class="t">取得標章後 + 慢慢補內容</span></label></h3>
-<p class="why">研習與中心都強調「做越多越容易被挑毛病，趁資料不多時送審」。這些留到拿到標章後再做。</p>
+<h3><label class="chk"><input type="checkbox" data-id="after"> <span class="num">1</span> <span class="t">取得標章後：依校務需求逐步擴充</span></label></h3>
+<p class="why">先完成核心內容與審查，再逐步加入相簿、公開資訊、外部連結與自製小站；每次新增仍要維持無障礙規範。</p>
 <ol class='steps'>
-<li>🥇 <b>掛標章</b>：後台 → 區塊管理 → 「無障礙標章」區塊 → 選標章種類 + 填數發部核發的「專屬檢測記錄網頁編號」</li>
-<li>📷 <b>Google 相簿</b>：舊站有 32 本，照片不用重傳，只要重貼分享連結。新增項目時貼上網址，<b>點一下相簿標題欄位就會自動抓到名稱</b></li>
-<li>📊 <b>會計室公開資訊</b>：147 個月報。注意有 <b>8 個決算報告是掃描件</b>（文字 0 字），依規範不能直接放，建議只搬近 1～2 年文字可選取的</li>
-<li>🔗 <b>外部連結 14 條</b>補到常用連結（Chrome/FireFox/IE10 那三條建議直接不要搬）</li>
-<li>🛠️ <b>自製小站去留</b>：9 個站已備份 131 MB，決定留舊站或搬 GitHub Pages</li>
+<li>🥇 掛標章：依平台後台的無障礙標章區塊說明，填入官方核發資料</li>
+<li>📷 相簿：依你校實際相簿逐一檢查分享連結、標題與替代文字</li>
+<li>📊 會計室公開資訊：依規範與校務需求決定年度範圍，優先處理文字可選取的檔案</li>
+<li>🔗 外部連結：逐條確認目的地、名稱、另開視窗提示與失效狀況</li>
+<li>🛠️ 自製小站：先決定保留、搬遷或下線，再建立可維護的網址與責任人</li>
 </ol>
 <p class="note">💡 認證有效期 3 年，期間會不定期抽查，所以之後新增內容仍要維持同樣的撰寫紀律。</p>
 </section></div>
@@ -624,22 +600,16 @@ footer a { color:var(--accent); font-weight:700; }
 </div>
 
 <footer>
-  石門國小校網遷移專案 · 操作台<br>
-  <a href="migration-story.html">完整實戰故事集</a> · <a href="https://github.com/cagoooo/smes-web-migration" target="_blank" rel="noopener noreferrer">GitHub 公開 repository</a><br>
-  詳細說明文件在 <code>docs\</code>，工具在 <code>scripts\</code><br>
-  Made with ❤️ by
-  <a href="https://www.smes.tyc.edu.tw/modules/tadnews/page.php?ncsn=11&amp;nsn=16#a5"
-     target="_blank" rel="noopener noreferrer" title="另開新視窗">阿凱老師</a>
-  ｜ 桃園市龍潭區石門國民小學
+  校網遷移與 AA 無障礙公開操作台 · 可套用到你的學校<br>本公開版已去識別化；請使用你校自己的網址、內容與校內安全資料。
 </footer>
 </div>
 
 <script>
-const DATA = {"blocks": {"今日午餐資訊": "<h3 style=\"font-size:1.1rem;\">桃園市龍潭區石門國小2026-08-04午餐資訊</h3>\n<div style=\"font-size:0.965rem\">\n<div><code>本校一律使用國產豬、牛肉食材</code></div>\n</div>\n<div class=\"alert alert-danger\">\n            當天不供餐，或尚無該日資訊！\n        </div>\n<div class=\"row py-2\">\n<div class=\"col-md-9\">\n<a href=\"https://fatraceschool.k12ea.gov.tw/frontend/search.html?school=64737364&amp;period=2026-08-04\" rel=\"noopener noreferrer\" style=\"font-size:0.925rem\" target=\"_blank\" title=\"另開新視窗\"><i class=\"fa-solid fa-arrow-pointer\"></i> 點此（另開新視窗）校園食材登錄平臺觀看詳細資訊</a>\n</div>\n<div class=\"col-md-3 text-end\">\n</div>\n</div>\n 添加無障礙腳本，確保放在文件底部", "反霸凌_性平宣導": "<div class=\"container-fluid p-3 rounded\" style=\"background-color: #e4e9c6; box-shadow: 0 1px 3px rgba(0,0,0,0.1);\">\n<ul class=\"list-unstyled m-0 p-0\">\n<li class=\"py-2 d-flex align-items-center flex-wrap\" style=\"border-bottom: 1px dashed #b0b890;\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none\" href=\"https://drive.google.com/file/d/1XIPjDt08m2m3vUMe4-5gdStacyZ09jUm/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">性平組織章程</a> <span aria-hidden=\"true\" class=\"mx-2\" style=\"color: #0000ee; opacity: 0.6;\">｜</span> <a class=\"text-decoration-none\" href=\"https://drive.google.com/file/d/1kivU03GvH2PR2WtGmDHPq2EyKgiDjniW/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">性平委員會成員</a></li>\n<li class=\"py-2 d-flex align-items-center flex-wrap\" style=\"border-bottom: 1px dashed #b0b890;\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none\" href=\"https://drive.google.com/file/d/1aHJWqh-8-WOBM0TR8yA5vUz4Mx97Pw3M/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">石小性別平等教育實施規定</a> <span aria-hidden=\"true\" class=\"mx-2\" style=\"color: #0000ee; opacity: 0.6;\">｜</span> <a class=\"text-decoration-none\" href=\"https://drive.google.com/file/d/1gzP9EwMjSQaxFxTWuYgxyp96jCBLriDq/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">石小校園性別事件防治規定</a></li>\n<li class=\"py-2 d-flex align-items-center flex-wrap\" style=\"border-bottom: 1px dashed #b0b890;\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none\" href=\"https://drive.google.com/file/d/0B4YK8QjWdYlYbGNjTVV5VW1Qd1U/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">性平處理流程</a> <span aria-hidden=\"true\" class=\"mx-2\" style=\"color: #0000ee; opacity: 0.6;\">｜</span> <a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/uploads/tad_blocks/file/%E6%80%A7%E5%B9%B3%E5%AD%B8%E7%94%9F%E6%8F%90%E6%A1%88%EF%A7%8A%E7%A8%8B%E5%9C%96.pdf\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"PDF文件，另開新視窗\">教育部提案流程</a> <span aria-hidden=\"true\" class=\"mx-2\" style=\"color: #0000ee; opacity: 0.6;\">｜</span> <a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/uploads/tad_blocks/file/%E6%8F%90%E6%A1%88%E5%96%AE.odt\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"ODT文件，另開新視窗\">下載 提案單（ODT文件）</a></li>\n<li class=\"py-2 d-flex align-items-center flex-wrap\" style=\"border-bottom: 1px dashed #b0b890;\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/uploads/tad_blocks/file/%E5%AD%B8%E7%94%9F%E6%87%B7%E5%AD%95%E5%8F%97%E6%95%99%E6%AC%8A%E7%B6%AD%E8%AD%B7%E5%8F%8A%E8%BC%94%E5%B0%8E%E5%8D%94%E5%8A%A9%E6%B5%81%E7%A8%8B.pdf\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"PDF文件，另開新視窗\">學生懷孕受教權維護及輔導流程</a></li>\n<li class=\"py-2 d-flex align-items-center flex-wrap\" style=\"border-bottom: 1px dashed #b0b890;\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none\" href=\"https://drive.google.com/file/d/1MZJlzAX-bEc8Kqag06pYOovEsaOpDBSJ/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">學生申訴案件處理辦法</a></li>\n<li class=\"py-2 d-flex align-items-center flex-wrap\" style=\"border-bottom: 1px dashed #b0b890;\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none\" href=\"https://kids.ey.gov.tw/Page/FF84CD5C9E34E78\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">行政院兒童e樂園(性平小學堂)</a></li>\n<li class=\"py-2 d-flex align-items-center flex-wrap\" style=\"border-bottom: 1px dashed #b0b890;\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none\" href=\"https://www.ptskids.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">公視兒少資源網</a> <span aria-hidden=\"true\" class=\"mx-2\" style=\"color: #0000ee; opacity: 0.6;\">｜</span> <a class=\"text-decoration-none\" href=\"https://friendlycampus.k12ea.gov.tw/Gender\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">性別平等教育資源中心</a></li>\n<li class=\"py-2 d-flex align-items-center flex-wrap\" style=\"border-bottom: 1px dashed #b0b890;\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none\" href=\"https://www.gender.edu.tw/web/index.php/m5/m5_05_02_index\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">性別平等教育全球資訊網</a></li>\n<li class=\"py-2 d-flex align-items-center flex-wrap\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a class=\"text-decoration-none d-inline-flex align-items-center\" href=\"https://bully.moe.edu.tw/index\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\"> 1953反霸凌 <img alt=\"1953反霸凌標誌\" class=\"img-fluid ms-2\" src=\"https://www.smes.tyc.edu.tw/uploads/tad_blocks/image/1953.png\" style=\"max-height: 2.1875rem;\"/> </a></li>\n</ul>\n</div>", "數位學習專區": "<div class=\"container-fluid p-3 rounded shadow-sm\" style=\"background-color: #e4e9c6;\">\n<ul class=\"list-unstyled mb-0\">\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 d-flex align-items-start\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span>\n<div><a class=\"text-decoration-none\" href=\"https://www.cdc.gov.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">衛福部</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://s3.ilc.edu.tw/projects/editor\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">Scratch 3</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://www.learnmode.net/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">學習吧</a></div>\n</li>\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 d-flex align-items-start\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span>\n<div><a class=\"text-decoration-none\" href=\"https://www.junyiacademy.org/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">均一</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://www.pagamo.org/map?course_code=tycg\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">PaGamO素養品學堂</a></div>\n</li>\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 d-flex align-items-start\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span>\n<div><a class=\"text-decoration-none\" href=\"https://cloud.edu.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">教育雲</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://adl.edu.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">因材網</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://stv.naer.edu.tw/index.jsp\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">愛學網</a></div>\n</li>\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 d-flex align-items-start\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span>\n<div><a class=\"text-decoration-none\" href=\"https://student.oneclass.com.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">南一</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://edisc3.hle.com.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">翰林</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://digitalmaster.knsh.com.tw/v3/pages/e/index.html#year=1131&amp;field=un&amp;grade=all&amp;item=ebook\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">康軒</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://jen-pin.com.tw/material.php\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">真平</a></div>\n</li>\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 d-flex align-items-start\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span>\n<div><a class=\"text-decoration-none\" href=\"https://cooc.tp.edu.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">臺北酷課雲</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"http://drlive.kh.edu.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">高雄達學堂</a></div>\n</li>\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 d-flex align-items-start\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span>\n<div><a class=\"text-decoration-none\" href=\"https://ups.moe.edu.tw/mooc/index.php\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">教師e學院</a> <span aria-hidden=\"true\" class=\"mx-2\">/</span> <a class=\"text-decoration-none\" href=\"https://www.coolenglish.edu.tw/\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">CoolEnglish</a></div>\n</li>\n<li class=\"py-2 d-flex align-items-start\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span>\n<div><a class=\"text-decoration-none\" href=\"https://cirn.moe.edu.tw/WebContent/index.aspx?sid=1186&amp;mid=11733\" rel=\"noopener noreferrer\" style=\"color: #0000ee;\" target=\"_blank\" title=\"另開新視窗\">閱讀課程參考資源</a><br/>\n<span class=\"small fw-normal\" style=\"color: #212529;\">(全國圖書教師輔導團資源)</span></div>\n</li>\n</ul>\n</div>", "石門網路教學資源": "<div class=\"container-fluid p-3 rounded shadow-sm\" style=\"background-color: #e4e9c6;\">\n<ul class=\"list-unstyled m-0 p-0\">\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 position-relative\" style=\"padding-left: 30px;\">\n<span aria-hidden=\"true\" class=\"position-absolute start-0 top-50 translate-middle-y ps-2\" style=\"color: #ff8c00;\">✿</span>\n<a class=\"text-decoration-none\" href=\"http://data.smes.tyc.edu.tw/classweb/modules/pagemodule/index.php?gid=18&amp;mid=148\" rel=\"noopener noreferrer\" style=\"color: #0000ff;\" target=\"_blank\" title=\"另開新視窗\">資訊教育網</a>\n<span aria-hidden=\"true\" class=\"mx-2 text-muted\">｜</span>\n<a class=\"text-decoration-none\" href=\"https://drive.google.com/file/d/1rKfqmLmIVpB8EWLu90cJyO2HjXjufhJk/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ff;\" target=\"_blank\" title=\"另開新視窗\">2024公開授課</a>\n</li>\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 position-relative\" style=\"padding-left: 30px;\">\n<span aria-hidden=\"true\" class=\"position-absolute start-0 top-50 translate-middle-y ps-2\" style=\"color: #ff8c00;\">✿</span>\n<a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/smes_html/bird/\" rel=\"noopener noreferrer\" style=\"color: #0000ff;\" target=\"_blank\" title=\"另開新視窗\">石門鳥類網</a>\n<span aria-hidden=\"true\" class=\"mx-2 text-muted\">｜</span>\n<a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/smes_html/insect/\" rel=\"noopener noreferrer\" style=\"color: #0000ff;\" target=\"_blank\" title=\"另開新視窗\">石門昆蟲網</a>\n</li>\n<li class=\"py-2 border-bottom border-secondary border-opacity-25 position-relative\" style=\"padding-left: 30px;\">\n<span aria-hidden=\"true\" class=\"position-absolute start-0 top-50 translate-middle-y ps-2\" style=\"color: #ff8c00;\">✿</span>\n<a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/smes_html/plant/\" rel=\"noopener noreferrer\" style=\"color: #0000ff;\" target=\"_blank\" title=\"另開新視窗\">石門植物網</a>\n<span aria-hidden=\"true\" class=\"mx-2 text-muted\">｜</span>\n<a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/smes_html/poisonous/\" rel=\"noopener noreferrer\" style=\"color: #0000ff;\" target=\"_blank\" title=\"另開新視窗\">石門有毒植物</a>\n</li>\n<li class=\"py-2 position-relative\" style=\"padding-left: 30px;\">\n<span aria-hidden=\"true\" class=\"position-absolute start-0 top-50 translate-middle-y ps-2\" style=\"color: #ff8c00;\">✿</span>\n<a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/smes_html/animator/\" rel=\"noopener noreferrer\" style=\"color: #0000ff;\" target=\"_blank\" title=\"另開新視窗\">動畫參考網</a>\n<span aria-hidden=\"true\" class=\"mx-2 text-muted\">｜</span>\n<a class=\"text-decoration-none\" href=\"https://www.smes.tyc.edu.tw/smes_html/watercool/\" rel=\"noopener noreferrer\" style=\"color: #0000ff;\" target=\"_blank\" title=\"另開新視窗\">用水庫看世界</a>\n</li>\n</ul>\n</div>", "重要宣導連結": "<div class=\"container-fluid p-3 rounded shadow-sm\" style=\"background-color: #e4e9c6; max-width: 100%;\">\n<ul class=\"list-unstyled m-0\">\n<li class=\"border-bottom border-secondary border-opacity-25 py-2 d-flex flex-wrap align-items-center\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"https://docs.google.com/document/d/1gtYX97ssu8ipob8f70J9uMH5PDTYWzXD/edit?usp=sharing&amp;ouid=104930879117099226727&amp;rtpof=true&amp;sd=true\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"另開新視窗\">114學年度行事簡曆 (下學期)</a> <span aria-hidden=\"true\" class=\"mx-2 text-muted\">|</span> <a href=\"https://docs.google.com/document/d/1FUHIykl3EcInMAJtTqq2GQwD5vvoKhoIGzj670hgj30/edit?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"另開新視窗\">115學年度行事簡曆</a></li>\n<li class=\"border-bottom border-secondary border-opacity-25 py-2 d-flex flex-wrap align-items-center\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"https://drive.google.com/file/d/1cla_Tf9GaF7lsNj09uQOy7PMr2BHvvZz/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"另開新視窗\">114學年度教科書選用版本表</a> <span aria-hidden=\"true\" class=\"mx-2 text-muted\">|</span> <a href=\"https://drive.google.com/file/d/1yvJ6hx-bA32weCWdL7CZoVHaLtc3dFtO/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"另開新視窗\">115學年度教科書選用版本表</a></li>\n<li class=\"border-bottom border-secondary border-opacity-25 py-2\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"https://drive.google.com/drive/folders/1TBzTYii8gDSDow354LQUkO0sycKxLaV1?usp=drive_link\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"另開新視窗\">115學年度課程計畫</a></li>\n<li class=\"border-bottom border-secondary border-opacity-25 py-2\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"https://drive.google.com/file/d/14Vcs8-iclLd8p5OyGahm47rSZb-3VQGW/view?usp=sharing\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"另開新視窗\">石小成績評量辦法</a></li>\n<li class=\"border-bottom border-secondary border-opacity-25 py-2\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"https://www.smes.tyc.edu.tw/modules/tadnews/page.php?nsn=276\" style=\"color: #0000ee; text-decoration: none;\">在學成績證明、畢業證書補發申請</a></li>\n<li class=\"border-bottom border-secondary border-opacity-25 py-2\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"【請換成新站上傳後的網址】校外人士協助教學或活動要點.pdf\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"PDF文件，另開新視窗\">校外人士協助教學或活動要點</a></li>\n<li class=\"border-bottom border-secondary border-opacity-25 py-2\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"【請換成新站上傳後的網址】校園行動載具使用原則.pdf\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"PDF文件，另開新視窗\">校園行動載具使用原則</a></li>\n<li class=\"border-bottom border-secondary border-opacity-25 py-2\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"https://online.visual-paradigm.com/share/book/--14bcb1jy8g\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"另開新視窗\">教育部中小學數位教學指引</a></li>\n<li class=\"py-2\"><span aria-hidden=\"true\" class=\"me-2\" style=\"color: #ff8c00;\">✿</span> <a href=\"https://online.visual-paradigm.com/share/book/-pdf-1bhruaudt2\" rel=\"noopener noreferrer\" style=\"color: #0000ee; text-decoration: none;\" target=\"_blank\" title=\"另開新視窗\">數位時代媒體素養教育白皮書</a></li>\n</ul>\n</div>"}, "members": {}, "monica": {}};
-const KEY = "smes-migration-progress";
-const TKEY = "smes-migration-theme";
+const DATA = {"blocks": {}, "members": {}, "monica": {}};
+const KEY = "school-migration-progress";
+const TKEY = "school-migration-theme";
 
-// 主題：預設亮色（阿凱偏好），使用者切過就記住
+// 主題：預設亮色，使用者切過就記住
 (function () {
   const btn = document.getElementById("theme");
   function apply(t) {
@@ -749,7 +719,7 @@ calc();
 <script>
 (function () {
   if (!('serviceWorker' in navigator)) return;
-  var APP_VERSION = '2026.08.15-1';
+  var APP_VERSION = '2026.08.15-2';
   var SW_REG = null, UPDATING = false;
 
   function applyUpdate() {

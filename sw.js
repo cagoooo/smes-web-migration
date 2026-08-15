@@ -1,5 +1,5 @@
 /**
- * 石門國小校網遷移操作台 — Service Worker
+ * 校網遷移與 AA 無障礙實作操作台 — Service Worker
  *
  * 策略（依 skill: favicon-pwa-starter / pwa-cache-bust）：
  *   - HTML：network-first（永遠先拿最新，離線才回快取）
@@ -11,8 +11,8 @@
  * ⚠️ 每次部署都要改 BUILD_VERSION（跑 scripts/bump-version.ps1 會自動同步三處），
  *    sw.js 的 byte 沒變的話瀏覽器會當作同一支，永遠不會觸發更新通知。
  */
-const BUILD_VERSION = '2026.08.15-1';
-const CACHE = 'smes-migration-' + BUILD_VERSION;
+const BUILD_VERSION = '2026.08.15-2';
+const CACHE = 'school-migration-' + BUILD_VERSION;
 
 const PRECACHE = [
   './',
@@ -37,7 +37,7 @@ self.addEventListener('activate', (e) => {
   e.waitUntil((async () => {
     const keys = await caches.keys();
     await Promise.all(
-      keys.filter((k) => k.startsWith('smes-migration-') && k !== CACHE)
+      keys.filter((k) => k.startsWith('school-migration-') && k !== CACHE)
           .map((k) => caches.delete(k))
     );
     await self.clients.claim();
